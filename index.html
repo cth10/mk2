@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hatsune Miku Fan Hub</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Custom scrollbar for dark theme */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #1e293b; /* slate-800 */
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #0d9488; /* teal-600 */
+      border-radius: 5px;
+      border: 2px solid #1e293b; /* slate-800 to give a thinner look */
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #0f766e; /* teal-700 */
+    }
+
+    /* Basic fadeIn animation (retained if PageWrapper still uses it, but new ones added) */
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(10px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fadeIn { animation: fadeIn 0.5s ease-out; }
+
+    /* New slideUpFadeIn animation */
+    @keyframes slideUpFadeIn {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .animate-slideUpFadeIn { 
+      animation: slideUpFadeIn 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; 
+    }
+
+    /* For Hero Text */
+     @keyframes textFocusIn {
+      0% {
+        filter: blur(12px);
+        opacity: 0;
+      }
+      100% {
+        filter: blur(0px);
+        opacity: 1;
+      }
+    }
+    .animate-textFocusIn {
+	    animation: textFocusIn 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+    }
+
+
+  </style>
+
+<link rel="stylesheet" href="./index.css">
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.1.0",
+    "react/": "https://esm.sh/react@^19.1.0/",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.6.1"
+  }
+}
+</script>
+  <script type="module" crossorigin src="/mk2/assets/index-BtHVdvYd.js"></script>
+</head>
+<body class="bg-slate-900 text-slate-200 min-h-screen antialiased">
+  <div id="root"></div>
+</body>
+</html>
