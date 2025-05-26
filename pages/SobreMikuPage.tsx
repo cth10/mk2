@@ -10,7 +10,7 @@ export const SobreMikuPage: React.FC = () => {
       <ContentCard title="Perfil da Diva Virtual">
         <div className="flex flex-col lg:flex-row items-start gap-8">
           <img 
-            src="https://upload.wikimedia.org/wikipedia/en/4/45/Hatsune_Miku_V4X_artwork.png" 
+            src="/miku2.webp" 
             alt="Arte oficial de Hatsune Miku (V4X Design)" 
             className="rounded-xl shadow-2xl w-full lg:w-2/5 max-w-md mx-auto object-contain transition-transform duration-300 hover:scale-105"
           />
