@@ -75,30 +75,29 @@ export const MikuOutlineIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-// Enhanced Miku Brand Icon with more detail and visibility
+// Simple and highly visible Miku Brand Icon
 export const MikuBrandIcon = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 64 64" className={className} fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-    {/* Twin tails - mais grossas e visíveis */}
-    <path d="M10,6 C6,18 6,32 10,48 L18,48 C14,32 14,18 18,6 Z" fill="currentColor" stroke="currentColor" strokeWidth="1"/>
-    <path d="M54,6 C58,18 58,32 54,48 L46,48 C50,32 50,18 46,6 Z" fill="currentColor" stroke="currentColor" strokeWidth="1"/>
+    {/* Twin tails - bem grandes e visíveis */}
+    <path d="M8,8 C4,20 4,35 8,50 L16,50 C12,35 12,20 16,8 Z" fill="currentColor" strokeWidth="3"/>
+    <path d="M56,8 C60,20 60,35 56,50 L48,50 C52,35 52,20 48,8 Z" fill="currentColor" strokeWidth="3"/>
 
-    {/* Head - maior e mais definida */}
-    <circle cx="32" cy="20" r="14" fill="currentColor" stroke="currentColor" strokeWidth="2"/>
+    {/* Head - bem grande */}
+    <circle cx="32" cy="22" r="16" fill="currentColor" strokeWidth="3"/>
 
-    {/* Hair accessories - maiores */}
-    <circle cx="18" cy="22" r="5" fill="currentColor" stroke="currentColor" strokeWidth="1"/>
-    <circle cx="46" cy="22" r="5" fill="currentColor" stroke="currentColor" strokeWidth="1"/>
+    {/* Hair accessories - bem visíveis */}
+    <circle cx="16" cy="24" r="6" fill="currentColor"/>
+    <circle cx="48" cy="24" r="6" fill="currentColor"/>
 
-    {/* Face details */}
-    <circle cx="28" cy="18" r="1.5" fill="currentColor"/>
-    <circle cx="36" cy="18" r="1.5" fill="currentColor"/>
-    <path d="M30,24 Q32,26 34,24" stroke="currentColor" strokeWidth="1.5" fill="none"/>
+    {/* Eyes - maiores */}
+    <circle cx="26" cy="20" r="2" fill="rgba(0,0,0,0.8)"/>
+    <circle cx="38" cy="20" r="2" fill="rgba(0,0,0,0.8)"/>
 
-    {/* Body outline */}
-    <rect x="28" y="34" width="8" height="16" rx="4" fill="currentColor"/>
+    {/* Mouth */}
+    <path d="M28,28 Q32,32 36,28" stroke="rgba(0,0,0,0.6)" strokeWidth="2" fill="none"/>
 
-    {/* Number 01 */}
-    <text x="32" y="56" textAnchor="middle" fontSize="8" fill="currentColor" fontWeight="bold">01</text>
+    {/* Number 01 - maior */}
+    <text x="32" y="56" textAnchor="middle" fontSize="12" fill="currentColor" fontWeight="bold">01</text>
   </svg>
 );
 
