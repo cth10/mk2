@@ -1,0 +1,24 @@
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://miku.com.br/sitemap.xml
+
+# Block crawlers from accessing unnecessary files
+Disallow: /node_modules/
+Disallow: /*.json$
+Disallow: /*.ts$
+Disallow: /*.tsx$
+Disallow: /src/
+Disallow: /components/
+Disallow: /.git/
+Disallow: /.config/
+
+# Allow important assets
+Allow: /public/
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.webp$
+Allow: /*.css$
+Allow: /*.js$
