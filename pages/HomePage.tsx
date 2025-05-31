@@ -32,28 +32,28 @@ const HeroSection: React.FC = () => {
         </div>
 
         {/* Main title */}
-        <h1 className="text-6xl sm:text-8xl lg:text-9xl font-black tracking-tighter mb-6 font-noto-jp">
+        <h1 className="text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black tracking-tighter mb-4 sm:mb-6 font-noto-jp px-2">
           <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 neon-glow animate-fade-in">
             初音ミク
           </span>
-          <span className="block text-2xl sm:text-4xl lg:text-5xl font-light tracking-wider text-slate-300 mt-2 animate-fade-in" style={{ animationDelay: '0.5s' }}>
+          <span className="block text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-light tracking-wider text-slate-300 mt-1 sm:mt-2 animate-fade-in" style={{ animationDelay: '0.5s' }}>
             FAN HUB PORTAL
           </span>
         </h1>
 
         {/* Subtitle */}
-        <p className="text-xl sm:text-2xl lg:text-3xl text-slate-300 mb-12 max-w-4xl mx-auto leading-relaxed animate-fade-in" style={{ animationDelay: '1s' }}>
+        <p className="text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl text-slate-300 mb-8 sm:mb-12 max-w-4xl mx-auto leading-relaxed animate-fade-in px-4" style={{ animationDelay: '1s' }}>
           Mergulhe no universo holográfico da <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400 font-bold">diva virtual</span> mais icônica do mundo
         </p>
 
         {/* CTA Button */}
-        <div className="animate-fade-in" style={{ animationDelay: '1.5s' }}>
+        <div className="animate-fade-in px-4" style={{ animationDelay: '1.5s' }}>
           <button 
             onClick={() => document.getElementById('main-content-start')?.scrollIntoView({ behavior: 'smooth' })}
-            className="group relative glass-effect px-12 py-6 rounded-2xl border border-cyan-500/30 hover:border-cyan-400/50 transition-all duration-500 hover:scale-105 cyber-border"
+            className="group relative glass-effect px-6 xs:px-8 sm:px-12 py-4 xs:py-5 sm:py-6 rounded-xl sm:rounded-2xl border border-cyan-500/30 hover:border-cyan-400/50 transition-all duration-500 hover:scale-105 cyber-border w-full xs:w-auto"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            <span className="relative text-xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-purple-300 group-hover:from-cyan-200 group-hover:to-purple-200">
+            <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <span className="relative text-lg xs:text-xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-purple-300 group-hover:from-cyan-200 group-hover:to-purple-200">
               Explorar o Mundo Miku ✨
             </span>
           </button>
@@ -82,21 +82,21 @@ export const HomePage: React.FC = () => {
       <HeroSection />
       <PageWrapper title="Bem-vindo ao Fan Hub!" titleIcon={<HomeIcon />} className="pt-0" id="main-content-start">
         <ContentCard title="✨ Olá! Mergulhe no Mundo da Miku">
-          <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
-            <div className="lg:w-1/3 relative group">
+          <div className="flex flex-col lg:flex-row items-center gap-6 sm:gap-8 lg:gap-12">
+            <div className="w-full sm:w-2/3 md:w-1/2 lg:w-1/3 relative group">
               <img
                 src="/miku1.jpg"
                 alt="Arte oficial de Hatsune Miku (NT Design)" 
-                className="rounded-2xl shadow-2xl w-full max-w-md object-contain aspect-[3/4] transition-all duration-500 group-hover:scale-105 group-hover:rotate-1"
+                className="rounded-xl sm:rounded-2xl shadow-2xl w-full max-w-sm sm:max-w-md mx-auto object-contain aspect-[3/4] transition-all duration-500 group-hover:scale-105 group-hover:rotate-1"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-cyan-500/20 via-transparent to-purple-500/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-cyan-500/20 via-transparent to-purple-500/20 rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
             
-            <div className="lg:w-2/3 space-y-6">
-              <p className="text-xl leading-relaxed">
+            <div className="w-full lg:w-2/3 space-y-4 sm:space-y-6">
+              <p className="text-lg sm:text-xl leading-relaxed">
                 Este é o seu <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400 font-bold">portal definitivo</span> dedicado à icônica diva virtual: <span className="font-noto-jp text-cyan-300 font-semibold">初音ミク</span>! 
               </p>
-              <p className="text-lg text-slate-300">
+              <p className="text-base sm:text-lg text-slate-300">
                 Aqui, você encontrará um tesouro de informações, curiosidades e muito mais sobre Miku e o fascinante universo Vocaloid.
               </p>
               
@@ -122,14 +122,14 @@ export const HomePage: React.FC = () => {
         </ContentCard>
 
         <ContentCard title="🎵 O Fenômeno Cultural">
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
             <div className="space-y-4">
-              <p className="text-lg">
+              <p className="text-base sm:text-lg">
                 Desde 2007, Hatsune Miku revolucionou a indústria musical, democratizando a criação musical e inspirando milhões de artistas ao redor do mundo.
               </p>
-              <div className="glass-effect rounded-lg p-4 border border-cyan-500/20">
-                <h4 className="text-cyan-300 font-semibold mb-2">💫 Marcos Importantes:</h4>
-                <ul className="text-sm space-y-1 text-slate-300">
+              <div className="glass-effect rounded-lg p-3 sm:p-4 border border-cyan-500/20">
+                <h4 className="text-cyan-300 font-semibold mb-2 text-sm sm:text-base">💫 Marcos Importantes:</h4>
+                <ul className="text-xs sm:text-sm space-y-1 text-slate-300">
                   <li>• Mais de 1 milhão de músicas criadas</li>
                   <li>• Concertos holográficos épicos</li>
                   <li>• Comunidade global de produtores</li>
@@ -139,10 +139,10 @@ export const HomePage: React.FC = () => {
             </div>
             
             <div className="space-y-4">
-              <p className="text-lg">
+              <p className="text-base sm:text-lg">
                 Explore cada seção do nosso hub para uma jornada completa pelo universo virtual mais cativante da era digital!
               </p>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-1.5 sm:gap-2">
                 {[
                   { name: 'Música', path: '/musica' },
                   { name: 'Arte', path: '/arte' },
