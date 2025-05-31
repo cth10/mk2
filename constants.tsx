@@ -3,20 +3,42 @@ import { HomePage } from './pages/HomePage';
 import { SobreMikuPage } from './pages/SobreMikuPage';
 import { SobreVocaloidPage } from './pages/SobreVocaloidPage';
 import { LegadoPage } from './pages/LegadoPage';
+import { MusicaPage } from './pages/MusicaPage';
+import { ArtePage } from './pages/ArtePage';
+import { TecnologiaPage } from './pages/TecnologiaPage';
+import { CulturaPage } from './pages/CulturaPage';
+import { ComunidadePage } from './pages/ComunidadePage';
 
-// Placeholder components for new pages
-const MusicaPage = () => <div>Música Page</div>;
-const ArtePage = () => <div>Arte Page</div>;
-const TecnologiaPage = () => <div>Tecnologia Page</div>;
-const CulturaPage = () => <div>Cultura Page</div>;
-const ComunidadePage = () => <div>Comunidade Page</div>;
+// Icons para as novas páginas
+export const MusicIcon = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={className || "w-6 h-6"}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="m9 9 10.5-3m0 6.553v3.75a2.25 2.25 0 0 1-1.632 2.163l-1.32.377a1.803 1.803 0 1 1-.99-3.467l2.31-.66a2.25 2.25 0 0 0 1.632-2.163Zm0 0V2.25L9 5.25v10.303m0 0v3.75a2.25 2.25 0 0 1-1.632 2.163l-1.32.377a1.803 1.803 0 1 1-.99-3.467l2.31-.66A2.25 2.25 0 0 0 9 15.553Z" />
+  </svg>
+);
 
-// Placeholder icons for new pages
-const MusicIcon = ({ className }: { className?: string }) => <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={className || "w-6 h-6"}><path strokeLinecap="round" strokeLinejoin="round" d="M9 9l7-7 7 7-7 7"/></svg>;
-const ArtIcon = ({ className }: { className?: string }) => <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={className || "w-6 h-6"}><path strokeLinecap="round" d="M12 21v-3m0 0V6m0 15v-3M6 10.186L18 4.814M6 14.814L18 10.186M6 19.814L18 14.814"/></svg>;
-const TechIcon = ({ className }: { className?: string }) => <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={className || "w-6 h-6"}><path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75L5.25 17.25m11.99-10.5a2.25 2.25 0 00-3.182 3.182L19.5 19.5m-10.5 11.99a2.25 2.25 0 01-3.181-3.182l2.69-2.69h3.182a3 3 0 003-3v-2.25M16.5 6.75a3 3 0 013 3v2.25m0 0h-3.182a2.25 2.25 0 01-3-3V6.75m3 3L5.25 3.75m11.25 0a2.25 2.25 0 013 3L5.25 20.25"/></svg>;
-const CultureIcon = ({ className }: { className?: string }) => <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={className || "w-6 h-6"}><path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 008.716-4.037m-7.32-1.732a5.004 5.004 0 004.088-1.787m-7.32-1.732A5.004 5.004 0 004.088 9.878m7.32 7.32a9.004 9.004 0 00-8.715 4.037M12 7.5a2.25 2.25 0 110-4.5 2.25 2.25 0 010 4.5z"/></svg>;
-const CommunityIcon = ({ className }: { className?: string }) => <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={className || "w-6 h-6"}><path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479m-3.741.479c-.3 0-.225.24-.225.678v2.615c0 .744-.333 1.128-.669 1.128a1.121 1.121 0 01-1.56-.855l-1.52-1.314a5.713 5.713 0 00-.224-.419M15 18.72a9.094 9.094 0 00-3.741-.479m3.741.479c.3 0 .225.24.225.678v2.615c0 .744.333 1.128.669 1.128a1.121 1.121 0 011.56-.855l1.52-1.314a5.713 5.713 0 00.224-.419M9 18.72a9.094 9.094 0 00-3.741-.479m3.741.479c-.3 0-.225.24-.225.678v2.615c0 .744-.333 1.128-.669 1.128a1.121 1.121 0 01-1.56-.855l-1.52-1.314a5.713 5.713 0 00-.224-.419M3 18.72V9.75a3.75 3.75 0 013.75-3.75h10.5a3.75 3.75 0 013.75 3.75v8.97a3.75 3.75 0 01-3.75 3.75H6.75a3.75 3.75 0 01-3.75-3.75z"/></svg>;
+export const ArtIcon = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={className || "w-6 h-6"}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M9.53 16.122a3 3 0 0 0-5.78 1.128 2.25 2.25 0 0 1-2.4 2.245 4.5 4.5 0 0 0 8.4-2.245c0-.399-.078-.78-.22-1.128Zm0 0a15.998 15.998 0 0 0 3.388-1.62m-5.043-.025a15.994 15.994 0 0 1 1.622-3.395m3.42 3.42a15.995 15.995 0 0 0 4.764-4.648l3.876-5.814a1.151 1.151 0 0 0-1.597-1.597L14.146 6.32a15.996 15.996 0 0 0-4.649 4.763m3.42 3.42a6.776 6.776 0 0 0-3.42-3.42" />
+  </svg>
+);
+
+export const TechIcon = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={className || "w-6 h-6"}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25m18 0A2.25 2.25 0 0 0 18.75 3H5.25A2.25 2.25 0 0 0 3 5.25m18 0V12a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 12V5.25" />
+  </svg>
+);
+
+export const CultureIcon = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={className || "w-6 h-6"}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3s-4.5 4.03-4.5 9 2.015 9 4.5 9Z" />
+  </svg>
+);
+
+export const CommunityIcon = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={className || "w-6 h-6"}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
+  </svg>
+);
 
 // Types
 export interface PageRoute {
