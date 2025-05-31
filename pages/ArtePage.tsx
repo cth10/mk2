@@ -38,13 +38,20 @@ const ArtCanvas = () => (
   </div>
 );
 
+// Ícone de paleta SVG otaku style
+const PaletteIcon = ({ className }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+    <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 1L13.5 2.5L16.17 5.17C14.24 4.42 12.13 4.17 10 4.58C6.03 5.31 3.28 8.59 3.92 12.97C4.43 16.41 7.4 19.16 10.82 19.58C12 19.73 13.13 19.57 14.19 19.25C15.37 18.9 16.42 18.32 17.31 17.5L19.91 20.1L21.41 18.6L17.58 14.77C17.85 14.37 18.09 13.95 18.3 13.5C19.16 11.5 19.16 9.5 18.3 7.5L21 9Z" />
+  </svg>
+);
+
 const DigitalBrush = () => (
   <div className="flex items-center justify-center space-x-4 my-6">
     <div className="relative">
       <div className="w-2 h-16 bg-gradient-to-t from-amber-600 to-amber-400 rounded-full"></div>
       <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-6 h-6 bg-gradient-to-br from-slate-600 to-slate-800 rounded-full border-2 border-amber-400"></div>
     </div>
-    <div className="text-4xl animate-bounce">🎨</div>
+    <PaletteIcon className="w-16 h-16 text-cyan-400 animate-bounce drop-shadow-lg" />
     <div className="relative">
       <div className="w-2 h-16 bg-gradient-to-t from-blue-600 to-blue-400 rounded-full"></div>
       <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-6 h-6 bg-gradient-to-br from-slate-600 to-slate-800 rounded-full border-2 border-blue-400"></div>
@@ -135,9 +142,21 @@ export const ArtePage: React.FC = () => {
 
       <ContentCard title="Comunidade Artística">
         <div className="flex items-center justify-center space-x-8 my-6">
-          <div className="text-6xl animate-bounce" style={{ animationDelay: '0s' }}>👨‍🎨</div>
-          <div className="text-6xl animate-bounce" style={{ animationDelay: '0.5s' }}>🎨</div>
-          <div className="text-6xl animate-bounce" style={{ animationDelay: '1s' }}>👩‍🎨</div>
+          <div className="animate-bounce" style={{ animationDelay: '0s' }}>
+            <svg className="w-16 h-16 text-purple-400" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2M21 9V7L15 1L13.5 2.5L16.17 5.17C14.24 4.42 12.13 4.17 10 4.58C6.03 5.31 3.28 8.59 3.92 12.97C4.43 16.41 7.4 19.16 10.82 19.58C12 19.73 13.13 19.57 14.19 19.25C15.37 18.9 16.42 18.32 17.31 17.5L19.91 20.1L21.41 18.6L17.58 14.77C17.85 14.37 18.09 13.95 18.3 13.5C19.16 11.5 19.16 9.5 18.3 7.5L21 9Z" />
+            </svg>
+          </div>
+          <div className="animate-bounce" style={{ animationDelay: '0.5s' }}>
+            <svg className="w-16 h-16 text-cyan-400" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M9.5 3L8 4.5L10.5 7L12 5.5L9.5 3M6.5 6L5 7.5L7.5 10L9 8.5L6.5 6M2.5 10L1 11.5L3.5 14L5 12.5L2.5 10M7.5 18C9.43 18 11 16.43 11 14.5S9.43 11 7.5 11 4 12.57 4 14.5 5.57 18 7.5 18M16.5 6C18.43 6 20 4.43 20 2.5S18.43 -1 16.5 -1 13 .57 13 2.5 14.57 6 16.5 6M19.5 18C21.43 18 23 16.43 23 14.5S21.43 11 19.5 11 16 12.57 16 14.5 17.57 18 19.5 18Z" />
+            </svg>
+          </div>
+          <div className="animate-bounce" style={{ animationDelay: '1s' }}>
+            <svg className="w-16 h-16 text-pink-400" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 12C14.21 12 16 10.21 16 8S14.21 4 12 4 8 5.79 8 8 9.79 12 12 12M12 14C9.33 14 4 15.34 4 18V20H20V18C20 15.34 14.67 14 12 14M18 8L20 6L18 4L16 6L18 8M6 8L8 6L6 4L4 6L6 8M12 2L14 0L12 2L10 0L12 2Z" />
+            </svg>
+          </div>
         </div>
         <p className="text-center text-slate-300 mb-6">
           A comunidade artística Vocaloid é uma das mais ativas e colaborativas do mundo digital, 
