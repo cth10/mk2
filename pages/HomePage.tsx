@@ -110,10 +110,9 @@ export const HomePage: React.FC = () => {
           <div className="flex flex-col lg:flex-row items-center gap-6 sm:gap-8 lg:gap-12">
             <div className="w-full sm:w-2/3 md:w-1/2 lg:w-1/3 relative group">
               <img
-                src="/miku2.webp"
-                alt="Arte oficial de Hatsune Miku (V4X Design)" 
-                className="rounded-xl sm:rounded-2xl shadow-2xl w-full max-w-sm sm:max-w-md mx-auto object-cover aspect-[3/4] transition-all duration-500 group-hover:scale-105 group-hover:rotate-1 filter-none"
-                style={{ imageRendering: 'crisp-edges' }}
+                src="/miku1.jpg"
+                alt="Arte oficial de Hatsune Miku (NT Design)" 
+                className="rounded-xl sm:rounded-2xl shadow-2xl w-full max-w-sm sm:max-w-md mx-auto object-contain aspect-[3/4] transition-all duration-500 group-hover:scale-105 group-hover:rotate-1"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-cyan-500/20 via-transparent to-purple-500/20 rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
