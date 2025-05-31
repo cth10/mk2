@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { PageWrapper } from '../components/PageWrapper';
@@ -37,7 +36,7 @@ const HeroSection: React.FC = () => {
       {/* Animated background */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-purple-900/30 via-cyan-900/20 to-pink-900/30"></div>
-        
+
         {/* Floating elements */}
         <div className="absolute top-20 left-10 w-4 h-4 bg-cyan-400/60 rounded-full animate-float blur-sm"></div>
         <div className="absolute top-40 right-20 w-6 h-6 bg-purple-400/40 rounded-full animate-float" style={{ animationDelay: '1s' }}></div>
@@ -106,7 +105,7 @@ export const HomePage: React.FC = () => {
   return (
     <>
       <HeroSection />
-      <PageWrapper title="Bem-vindo ao Fan Hub!" titleIcon={<HomeIcon />} className="pt-0" id="main-content-start">
+      <PageWrapper title="Bem-vindo ao Mundo de Hatsune Miku - Fan Hub Brasil" titleIcon={<HomeIcon />} className="pt-0" id="main-content-start">
         <ContentCard title={<><SparkleIcon className="inline w-6 h-6 mr-2 text-cyan-400" />Olá! Mergulhe no Mundo da Miku</>}>
           <div className="flex flex-col lg:flex-row items-center gap-6 sm:gap-8 lg:gap-12">
             <div className="w-full sm:w-2/3 md:w-1/2 lg:w-1/3 relative group">
@@ -117,7 +116,7 @@ export const HomePage: React.FC = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-cyan-500/20 via-transparent to-purple-500/20 rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
-            
+
             <div className="w-full lg:w-2/3 space-y-4 sm:space-y-6">
               <p className="text-lg sm:text-xl leading-relaxed">
                 Este é o seu <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400 font-bold">portal definitivo</span> dedicado à icônica diva virtual: <span className="font-noto-jp text-cyan-300 font-semibold">初音ミク</span>! 
@@ -125,7 +124,7 @@ export const HomePage: React.FC = () => {
               <p className="text-base sm:text-lg text-slate-300">
                 Aqui, você encontrará um tesouro de informações, curiosidades e muito mais sobre Miku e o fascinante universo Vocaloid.
               </p>
-              
+
               <div className="glass-effect rounded-xl p-6 border border-purple-500/20">
                 <p className="mb-4 text-purple-300 font-semibold"><SearchIcon className="inline w-5 h-5 mr-2" />Navegue pelas seções para descobrir:</p>
                 <ul className="space-y-3 text-slate-300">
@@ -163,7 +162,7 @@ export const HomePage: React.FC = () => {
                 </ul>
               </div>
             </div>
-            
+
             <div className="space-y-4">
               <p className="text-base sm:text-lg">
                 Explore cada seção do nosso hub para uma jornada completa pelo universo virtual mais cativante da era digital!
