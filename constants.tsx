@@ -75,30 +75,23 @@ export const MikuOutlineIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-// Enhanced Miku Brand Icon with more detail and visibility
+// Enhanced Miku Brand Icon with more detail
 export const MikuBrandIcon = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 64 64" className={className} fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-    {/* Twin tails - mais grossas e visíveis */}
-    <path d="M10,6 C6,18 6,32 10,48 L18,48 C14,32 14,18 18,6 Z" fill="currentColor" stroke="currentColor" strokeWidth="1"/>
-    <path d="M54,6 C58,18 58,32 54,48 L46,48 C50,32 50,18 46,6 Z" fill="currentColor" stroke="currentColor" strokeWidth="1"/>
+    {/* Twin tails */}
+    <path d="M16,8 C8,20 8,35 16,50 L20,50 C12,35 12,20 20,8 Z" fill="currentColor" />
+    <path d="M48,8 C56,20 56,35 48,50 L44,50 C52,35 52,20 44,8 Z" fill="currentColor"/>
 
-    {/* Head - maior e mais definida */}
-    <circle cx="32" cy="20" r="14" fill="currentColor" stroke="currentColor" strokeWidth="2"/>
+    {/* Head */}
+    <circle cx="32" cy="16" r="12" fill="currentColor"/>
 
-    {/* Hair accessories - maiores */}
-    <circle cx="18" cy="22" r="5" fill="currentColor" stroke="currentColor" strokeWidth="1"/>
-    <circle cx="46" cy="22" r="5" fill="currentColor" stroke="currentColor" strokeWidth="1"/>
+    {/* Hair accessories */}
+    <circle cx="20" cy="18" r="4" fill="currentColor"/>
+    <circle cx="44" cy="18" r="4" fill="currentColor"/>
 
-    {/* Face details */}
-    <circle cx="28" cy="18" r="1.5" fill="currentColor"/>
-    <circle cx="36" cy="18" r="1.5" fill="currentColor"/>
-    <path d="M30,24 Q32,26 34,24" stroke="currentColor" strokeWidth="1.5" fill="none"/>
-
-    {/* Body outline */}
-    <rect x="28" y="34" width="8" height="16" rx="4" fill="currentColor"/>
-
-    {/* Number 01 */}
-    <text x="32" y="56" textAnchor="middle" fontSize="8" fill="currentColor" fontWeight="bold">01</text>
+    {/* Additional details */}
+    <path d="M32,28 L32,40" stroke="currentColor" strokeWidth="2"/>
+    <circle cx="32" cy="42" r="2" fill="currentColor"/>
   </svg>
 );
 
