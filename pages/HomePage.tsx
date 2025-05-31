@@ -51,8 +51,8 @@ const HeroSection: React.FC = () => {
         {/* Hero icon */}
         <div className="mb-8 flex justify-center">
           <div className="relative">
-            <MikuBrandIcon className="w-24 h-24 sm:w-32 sm:h-32 text-cyan-400 animate-float drop-shadow-2xl relative z-10" />
-            <div className="absolute inset-0 w-24 h-24 sm:w-32 sm:h-32 bg-cyan-400/30 rounded-full blur-2xl animate-pulse -z-10"></div>
+            <MikuBrandIcon className="w-24 h-24 sm:w-32 sm:h-32 text-cyan-400 animate-float drop-shadow-2xl" />
+            <div className="absolute inset-0 w-24 h-24 sm:w-32 sm:h-32 bg-cyan-400/30 rounded-full blur-2xl animate-pulse"></div>
           </div>
         </div>
 
@@ -137,7 +137,7 @@ export const HomePage: React.FC = () => {
                     Como funciona a inovadora tecnologia Vocaloid
                   </li>
                   <li className="flex items-center group cursor-pointer hover:text-pink-300 transition-colors duration-300">
-                    <MikuBrandIcon className="w-6 h-6 mr-4 text-pink-400 group-hover:animate-sparkle opacity-100" />
+                    <MikuBrandIcon className="w-6 h-6 mr-4 text-pink-400 group-hover:animate-sparkle" />
                     O legado cultural e impacto mundial da nossa diva
                   </li>
                 </ul>
