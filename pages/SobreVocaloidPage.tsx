@@ -16,9 +16,14 @@ export const SobreVocaloidPage: React.FC = () => {
           A tecnologia subjacente ao Vocaloid baseia-se na fragmentação de gravações vocais humanas em unidades fonéticas minúsculas. Estas unidades podem ser subsequentemente recombinadas e finamente ajustadas (em tom, timbre, duração, etc.) para construir novas frases e canções com expressividade notável.
         </p>
         <img 
-            src="https://upload.wikimedia.org/wikipedia/en/6/6f/Hatsune_Miku_V3_artwork.png" 
-            alt="Arte oficial de Hatsune Miku (V3 Design) representando o Vocaloid" 
+            src="/hatsune-miku-expo.png" 
+            alt="Hatsune Miku no MIKU EXPO - representando o Vocaloid" 
             className="rounded-xl shadow-xl w-full my-6 object-cover aspect-video max-h-[300px] transition-transform duration-300 hover:scale-105"
+          />
+        <img 
+            src="/miku-transparente.png" 
+            alt="Hatsune Miku - Arte Transparente" 
+            className="rounded-xl shadow-xl w-full my-6 object-contain aspect-square max-h-[400px] transition-transform duration-300 hover:scale-105"
           />
       </ContentCard>
 
