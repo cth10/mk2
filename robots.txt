@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://mikufanhub.com.br/sitemap.xml
+Sitemap: https://miku.com.br/sitemap.xml
 
 # Block crawlers from accessing unnecessary files
 Disallow: /node_modules/
