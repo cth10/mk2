@@ -107,83 +107,109 @@ export const HomePage: React.FC = () => {
       <HeroSection />
       <PageWrapper title="Bem-vindo ao Mundo de Hatsune Miku - Fan Hub Brasil" titleIcon={<HomeIcon />} className="pt-0" id="main-content-start">
         <ContentCard title={<><SparkleIcon className="inline w-6 h-6 mr-2 text-cyan-400" />Olá! Mergulhe no Mundo da Miku</>}>
-          <div className="flex flex-col lg:flex-row items-center gap-6 sm:gap-8 lg:gap-12">
-            <div className="w-full sm:w-2/3 md:w-1/2 lg:w-1/3 relative group">
-              <img
-                src="/miku1.jpg"
-                alt="Arte oficial de Hatsune Miku (NT Design)" 
-                className="rounded-xl sm:rounded-2xl shadow-2xl w-full max-w-sm sm:max-w-md mx-auto object-contain aspect-[3/4] transition-all duration-500 group-hover:scale-105 group-hover:rotate-1"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-cyan-500/20 via-transparent to-purple-500/20 rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            </div>
-
-            <div className="w-full lg:w-2/3 space-y-4 sm:space-y-6">
-              <p className="text-lg sm:text-xl leading-relaxed">
-                Este é o seu <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400 font-bold">portal definitivo</span> dedicado à icônica diva virtual: <span className="font-noto-jp text-cyan-300 font-semibold">初音ミク</span>! 
-              </p>
-              <p className="text-base sm:text-lg text-slate-300">
-                Aqui, você encontrará um tesouro de informações, curiosidades e muito mais sobre Miku e o fascinante universo Vocaloid.
-              </p>
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+            <div className="order-2 lg:order-1 space-y-6">
+              <div className="space-y-4">
+                <p className="text-lg sm:text-xl leading-relaxed">
+                  Este é o seu <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400 font-bold">portal definitivo</span> dedicado à icônica diva virtual: <span className="font-noto-jp text-cyan-300 font-semibold">初音ミク</span>! 
+                </p>
+                <p className="text-base sm:text-lg text-slate-300">
+                  Aqui, você encontrará um tesouro de informações, curiosidades e muito mais sobre Miku e o fascinante universo Vocaloid.
+                </p>
+              </div>
 
               <div className="glass-effect rounded-xl p-6 border border-purple-500/20">
                 <p className="mb-4 text-purple-300 font-semibold"><SearchIcon className="inline w-5 h-5 mr-2" />Navegue pelas seções para descobrir:</p>
                 <ul className="space-y-3 text-slate-300">
                   <li className="flex items-center group cursor-pointer hover:text-cyan-300 transition-colors duration-300">
-                    <SparklesIcon className="w-6 h-6 mr-4 text-cyan-400 group-hover:animate-sparkle" />
-                    A história e perfil detalhado da Miku
+                    <SparklesIcon className="w-6 h-6 mr-4 text-cyan-400 group-hover:animate-sparkle flex-shrink-0" />
+                    <span>A história e perfil detalhado da Miku</span>
                   </li>
                   <li className="flex items-center group cursor-pointer hover:text-purple-300 transition-colors duration-300">
-                    <InfoIcon className="w-6 h-6 mr-4 text-purple-400 group-hover:animate-sparkle" />
-                    Como funciona a inovadora tecnologia Vocaloid
+                    <InfoIcon className="w-6 h-6 mr-4 text-purple-400 group-hover:animate-sparkle flex-shrink-0" />
+                    <span>Como funciona a inovadora tecnologia Vocaloid</span>
                   </li>
                   <li className="flex items-center group cursor-pointer hover:text-pink-300 transition-colors duration-300">
-                    <MikuBrandIcon className="w-6 h-6 mr-4 text-pink-400 group-hover:animate-sparkle" />
-                    O legado cultural e impacto mundial da nossa diva
+                    <MikuBrandIcon className="w-6 h-6 mr-4 text-pink-400 group-hover:animate-sparkle flex-shrink-0" />
+                    <span>O legado cultural e impacto mundial da nossa diva</span>
                   </li>
                 </ul>
               </div>
+            </div>
+
+            <div className="order-1 lg:order-2 relative group">
+              <img
+                src="/miku1.jpg"
+                alt="Arte oficial de Hatsune Miku (NT Design)" 
+                className="rounded-xl sm:rounded-2xl shadow-2xl w-full max-w-md mx-auto object-contain aspect-[3/4] transition-all duration-500 group-hover:scale-105 group-hover:rotate-1"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-cyan-500/20 via-transparent to-purple-500/20 rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
           </div>
         </ContentCard>
 
         <ContentCard title={<><MusicNoteIcon className="inline w-6 h-6 mr-2 text-purple-400" />O Fenômeno Cultural</>}>
-          <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-            <div className="space-y-4">
-              <p className="text-base sm:text-lg">
+          <div className="grid md:grid-cols-2 gap-8 items-start">
+            <div className="space-y-6">
+              <p className="text-base sm:text-lg leading-relaxed">
                 Desde 2007, Hatsune Miku revolucionou a indústria musical, democratizando a criação musical e inspirando milhões de artistas ao redor do mundo.
               </p>
-              <div className="glass-effect rounded-lg p-3 sm:p-4 border border-cyan-500/20">
-                <h4 className="text-cyan-300 font-semibold mb-2 text-sm sm:text-base"><StarIcon className="inline w-4 h-4 mr-1" />Marcos Importantes:</h4>
-                <ul className="text-xs sm:text-sm space-y-1 text-slate-300">
-                  <li>• Mais de 1 milhão de músicas criadas</li>
-                  <li>• Concertos holográficos épicos</li>
-                  <li>• Comunidade global de produtores</li>
-                  <li>• Influência na cultura pop japonesa</li>
+              
+              <div className="glass-effect rounded-xl p-6 border border-cyan-500/20">
+                <h4 className="text-cyan-300 font-semibold mb-4 text-lg flex items-center">
+                  <StarIcon className="inline w-5 h-5 mr-2" />
+                  Marcos Importantes
+                </h4>
+                <ul className="space-y-3 text-slate-300">
+                  <li className="flex items-start">
+                    <span className="w-2 h-2 bg-cyan-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                    <span>Mais de 1 milhão de músicas criadas</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="w-2 h-2 bg-purple-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                    <span>Concertos holográficos épicos</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="w-2 h-2 bg-pink-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                    <span>Comunidade global de produtores</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="w-2 h-2 bg-cyan-300 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                    <span>Influência na cultura pop japonesa</span>
+                  </li>
                 </ul>
               </div>
             </div>
 
-            <div className="space-y-4">
-              <p className="text-base sm:text-lg">
+            <div className="space-y-6">
+              <p className="text-base sm:text-lg leading-relaxed">
                 Explore cada seção do nosso hub para uma jornada completa pelo universo virtual mais cativante da era digital!
               </p>
-              <div className="flex flex-wrap gap-1.5 sm:gap-2">
-                {[
-                  { name: 'Música', path: '/musica' },
-                  { name: 'Arte', path: '/arte' },
-                  { name: 'Tecnologia', path: '/tecnologia' },
-                  { name: 'Cultura', path: '/cultura' },
-                  { name: 'Comunidade', path: '/comunidade' }
-                ].map((section, index) => (
-                  <button 
-                    key={section.name}
-                    onClick={() => handleSectionClick(section.path)}
-                    className="px-3 py-1 text-sm glass-effect rounded-full border border-purple-400/30 text-purple-300 hover:border-purple-400/60 hover:bg-purple-400/10 transition-all duration-300 cursor-pointer transform hover:scale-105"
-                    style={{ animationDelay: `${index * 100}ms` }}
-                  >
-                    {section.name}
-                  </button>
-                ))}
+              
+              <div className="glass-effect rounded-xl p-6 border border-purple-500/20">
+                <h4 className="text-purple-300 font-semibold mb-4 text-lg">
+                  Seções Principais
+                </h4>
+                <div className="grid grid-cols-1 gap-3">
+                  {[
+                    { name: 'Música', path: '/musica', color: 'from-cyan-400 to-blue-400' },
+                    { name: 'Arte', path: '/arte', color: 'from-purple-400 to-pink-400' },
+                    { name: 'Tecnologia', path: '/tecnologia', color: 'from-green-400 to-cyan-400' },
+                    { name: 'Cultura', path: '/cultura', color: 'from-pink-400 to-rose-400' },
+                    { name: 'Comunidade', path: '/comunidade', color: 'from-yellow-400 to-orange-400' }
+                  ].map((section, index) => (
+                    <button 
+                      key={section.name}
+                      onClick={() => handleSectionClick(section.path)}
+                      className={`w-full p-3 rounded-lg glass-effect border border-purple-400/30 text-left transition-all duration-300 cursor-pointer transform hover:scale-105 group`}
+                      style={{ animationDelay: `${index * 100}ms` }}
+                    >
+                      <span className={`text-transparent bg-clip-text bg-gradient-to-r ${section.color} font-semibold group-hover:text-white transition-all duration-300`}>
+                        {section.name}
+                      </span>
+                    </button>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
