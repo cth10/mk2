@@ -79,19 +79,19 @@ export const MikuOutlineIcon = ({ className }: { className?: string }) => (
 export const MikuBrandIcon = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 64 64" className={className} fill="currentColor" xmlns="http://www.w3.org/2000/svg">
     {/* Twin tails */}
-    <path d="M16,8 C8,20 8,35 16,50 L20,50 C12,35 12,20 20,8 Z" fill="currentColor" opacity="0.9" />
-    <path d="M48,8 C56,20 56,35 48,50 L44,50 C52,35 52,20 44,8 Z" fill="currentColor" opacity="0.9"/>
+    <path d="M16,8 C8,20 8,35 16,50 L20,50 C12,35 12,20 20,8 Z" fill="currentColor" />
+    <path d="M48,8 C56,20 56,35 48,50 L44,50 C52,35 52,20 44,8 Z" fill="currentColor"/>
 
     {/* Head */}
-    <circle cx="32" cy="16" r="12" fill="currentColor" opacity="0.8"/>
+    <circle cx="32" cy="16" r="12" fill="currentColor"/>
 
     {/* Hair accessories */}
-    <circle cx="20" cy="18" r="4" fill="currentColor" opacity="0.6"/>
-    <circle cx="44" cy="18" r="4" fill="currentColor" opacity="0.6"/>
+    <circle cx="20" cy="18" r="4" fill="currentColor"/>
+    <circle cx="44" cy="18" r="4" fill="currentColor"/>
 
     {/* Additional details */}
-    <path d="M32,28 L32,40" stroke="currentColor" strokeWidth="2" opacity="0.7"/>
-    <circle cx="32" cy="42" r="2" fill="currentColor" opacity="0.7"/>
+    <path d="M32,28 L32,40" stroke="currentColor" strokeWidth="2"/>
+    <circle cx="32" cy="42" r="2" fill="currentColor"/>
   </svg>
 );
 
