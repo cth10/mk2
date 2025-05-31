@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { PageWrapper } from '../components/PageWrapper';
 import { ContentCard } from '../components/ContentCard';
@@ -10,7 +9,7 @@ const HeroSection: React.FC = () => {
       {/* Animated background */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-purple-900/30 via-cyan-900/20 to-pink-900/30"></div>
-        
+
         {/* Floating elements */}
         <div className="absolute top-20 left-10 w-4 h-4 bg-cyan-400/60 rounded-full animate-float blur-sm"></div>
         <div className="absolute top-40 right-20 w-6 h-6 bg-purple-400/40 rounded-full animate-float" style={{ animationDelay: '1s' }}></div>
@@ -84,7 +83,7 @@ export const HomePage: React.FC = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-cyan-500/20 via-transparent to-purple-500/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
-            
+
             <div className="lg:w-2/3 space-y-6">
               <p className="text-xl leading-relaxed">
                 Este é o seu <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400 font-bold">portal definitivo</span> dedicado à icônica diva virtual: <span className="font-noto-jp text-cyan-300 font-semibold">初音ミク</span>! 
@@ -92,7 +91,7 @@ export const HomePage: React.FC = () => {
               <p className="text-lg text-slate-300">
                 Aqui, você encontrará um tesouro de informações, curiosidades e muito mais sobre Miku e o fascinante universo Vocaloid.
               </p>
-              
+
               <div className="glass-effect rounded-xl p-6 border border-purple-500/20">
                 <p className="mb-4 text-purple-300 font-semibold">🔍 Navegue pelas seções para descobrir:</p>
                 <ul className="space-y-3 text-slate-300">
@@ -130,7 +129,7 @@ export const HomePage: React.FC = () => {
                 </ul>
               </div>
             </div>
-            
+
             <div className="space-y-4">
               <p className="text-lg">
                 Explore cada seção do nosso hub para uma jornada completa pelo universo virtual mais cativante da era digital!
@@ -151,5 +150,37 @@ export const HomePage: React.FC = () => {
         </ContentCard>
       </PageWrapper>
     </>
+  );
+};
+
+import React from 'react';
+
+interface PageWrapperProps {
+  title: string;
+  titleIcon?: React.ReactNode;
+  children: React.ReactNode;
+  className?: string;
+  id?: string;
+}
+
+export const PageWrapper: React.FC<PageWrapperProps> = ({ title, titleIcon, children, className = '', id }) => {
+  return (
+    <section id={id} className={`relative py-20 ${className}`}>
+      {/* Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-900/10 via-cyan-900/5 to-pink-900/10 pointer-events-none"></div>
+
+      {/* Header */}
+      <header className="relative z-10 text-center mb-12 sm:mb-16">
+        <div className="inline-flex items-center text-3xl sm:text-4xl font-bold text-slate-200">
+          {titleIcon && <span className="mr-4">{titleIcon}</span>}
+          {title}
+        </div>
+      </header>
+
+      {/* Content */}
+      <div className="relative space-y-16 sm:space-y-20 lg:space-y-24">
+        {children}
+      </div>
+    </section>
   );
 };
