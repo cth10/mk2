@@ -191,7 +191,9 @@ export const CulturaPage: React.FC = () => {
 
       <ContentCard title="Legado Cultural Duradouro">
         <div className="text-center mb-6">
-          <div className="text-6xl mb-4 animate-pulse">🌟</div>
+          <svg className="w-16 h-16 mx-auto mb-4 text-yellow-400 animate-pulse" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2L15.09 8.26L22 9L17 14L18.18 21L12 17.77L5.82 21L7 14L2 9L8.91 8.26L12 2Z" />
+          </svg>
           <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400">
             Uma Nova Era Cultural
           </h3>
@@ -199,19 +201,25 @@ export const CulturaPage: React.FC = () => {
         
         <div className="grid md:grid-cols-3 gap-6">
           <div className="text-center glass-effect rounded-xl p-6 border border-cyan-500/20">
-            <div className="text-3xl mb-3">🎵</div>
+            <svg className="w-12 h-12 mx-auto mb-3 text-cyan-400" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 3V13.55A4 4 0 1 0 14 17V7H18V5H14V3H12ZM10 19A2 2 0 1 1 12 17A2 2 0 0 1 10 19Z" />
+            </svg>
             <h4 className="text-cyan-300 font-semibold mb-2">Democratização Musical</h4>
             <p className="text-slate-300 text-sm">Qualquer pessoa pode criar e compartilhar música globalmente</p>
           </div>
           
           <div className="text-center glass-effect rounded-xl p-6 border border-purple-500/20">
-            <div className="text-3xl mb-3">🤝</div>
+            <svg className="w-12 h-12 mx-auto mb-3 text-purple-400" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18 18.72A9.094 9.094 0 0 0 21.741 18.241A3 3 0 0 0 17.059 15.521M18 18.72A9.094 9.094 0 0 1 21.741 18.241A3 3 0 0 1 17.059 15.521M18 18.719C18 19.324 17.676 19.852 17.2 20.2L12 15L6.8 20.2C6.324 19.852 6 19.324 6 18.719M18 18.719A5.971 5.971 0 0 0 17.059 15.521M6 18.719A5.971 5.971 0 0 1 6.941 15.521M17.059 15.521A5.995 5.995 0 0 0 12 12.75A5.995 5.995 0 0 0 6.941 15.521M15 6.75A3 3 0 1 1 9 6.75A3 3 0 0 1 15 6.75Z" />
+            </svg>
             <h4 className="text-purple-300 font-semibold mb-2">Colaboração Global</h4>
             <p className="text-slate-300 text-sm">Artistas de diferentes culturas trabalham juntos virtualmente</p>
           </div>
           
           <div className="text-center glass-effect rounded-xl p-6 border border-pink-500/20">
-            <div className="text-3xl mb-3">🚀</div>
+            <svg className="w-12 h-12 mx-auto mb-3 text-pink-400" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M2.81 14.12L5.64 11.29C8.34 10.79 11.04 10.8 13.74 11.33L16.55 14.14C17.34 14.93 17.34 16.17 16.55 16.96L14.96 18.55C14.17 19.34 12.93 19.34 12.14 18.55L9.33 15.74C6.63 15.24 3.93 15.23 1.23 15.76L2.81 14.12ZM18.88 2.12L16.05 4.95C13.35 5.45 10.65 5.44 7.95 4.91L5.14 2.1C4.35 1.31 4.35 0.07 5.14 -0.72L6.73 -2.31C7.52 -3.1 8.76 -3.1 9.55 -2.31L12.36 0.5C15.06 1 17.76 1.01 20.46 0.48L18.88 2.12Z" />
+            </svg>
             <h4 className="text-pink-300 font-semibold mb-2">Inovação Contínua</h4>
             <p className="text-slate-300 text-sm">Inspira novas tecnologias e formas de expressão artística</p>
           </div>

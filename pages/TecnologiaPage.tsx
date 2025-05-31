@@ -186,11 +186,17 @@ export const TecnologiaPage: React.FC = () => {
       <ContentCard title="Futuro da Tecnologia Vocal">
         <div className="relative w-full h-24 bg-gradient-to-r from-purple-900/30 via-cyan-900/30 to-pink-900/30 rounded-xl overflow-hidden mb-6">
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="text-4xl animate-pulse">🤖</div>
+            <svg className="w-12 h-12 text-cyan-400 animate-pulse" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 1L13.5 2.5L16.17 5.17C14.24 4.42 12.13 4.17 10 4.58C6.03 5.31 3.28 8.59 3.92 12.97C4.43 16.41 7.4 19.16 10.82 19.58C12 19.73 13.13 19.57 14.19 19.25C15.37 18.9 16.42 18.32 17.31 17.5L19.91 20.1L21.41 18.6L17.58 14.77C17.85 14.37 18.09 13.95 18.3 13.5C19.16 11.5 19.16 9.5 18.3 7.5L21 9ZM9 11C8.45 11 8 11.45 8 12S8.45 13 9 13 10 12.55 10 12 9.55 11 9 11ZM15 11C14.45 11 14 11.45 14 12S14.45 13 15 13 16 12.55 16 12 15.55 11 15 11Z" />
+            </svg>
             <div className="mx-4 text-2xl text-cyan-400">→</div>
-            <div className="text-4xl animate-bounce">🎤</div>
+            <svg className="w-12 h-12 text-purple-400 animate-bounce" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C13.1 2 14 2.9 14 4V12C14 13.1 13.1 14 12 14S10 13.1 10 12V4C10 2.9 10.9 2 12 2ZM19 12C19 15.53 16.39 18.54 13 19.14V21H11V19.14C7.61 18.54 5 15.53 5 12H7C7 14.76 9.24 17 12 17S17 14.76 17 12H19Z" />
+            </svg>
             <div className="mx-4 text-2xl text-purple-400">→</div>
-            <div className="text-4xl animate-pulse">🌟</div>
+            <svg className="w-12 h-12 text-yellow-400 animate-pulse" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2L15.09 8.26L22 9L17 14L18.18 21L12 17.77L5.82 21L7 14L2 9L8.91 8.26L12 2Z" />
+            </svg>
           </div>
         </div>
         
