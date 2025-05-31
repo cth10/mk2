@@ -1,30 +1,31 @@
 
 import React from 'react';
-import { ContentCardProps } from '../types';
+
+interface ContentCardProps {
+  title: string;
+  children: React.ReactNode;
+  className?: string;
+}
 
 export const ContentCard: React.FC<ContentCardProps> = ({ title, children, className }) => {
   return (
-    <div 
-      className={`bg-slate-800/70 backdrop-blur-lg shadow-xl rounded-2xl p-6 sm:p-8 
-                  border border-slate-700/50 transition-all duration-300 
-                  hover:shadow-teal-500/10 hover:border-teal-600/70 hover:scale-[1.015] ${className}`}
-    >
-      <h2 className="text-2xl sm:text-3xl font-semibold text-teal-300 mb-6 border-b-2 border-teal-700/40 pb-3">
+    <div className={`group relative glass-effect rounded-3xl p-8 sm:p-10 border border-cyan-500/20 shadow-2xl shadow-cyan-500/5 hover:shadow-cyan-500/15 transition-all duration-500 hover:scale-[1.02] cyber-border ${className || ''}`}>
+      {/* Background glow effect */}
+      <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-transparent to-purple-500/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+      
+      {/* Title */}
+      <h2 className="relative text-2xl sm:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-purple-300 mb-6 sm:mb-8 font-noto-jp">
         {title}
       </h2>
-      <div 
-        className="prose prose-slate max-w-none 
-                  prose-p:text-slate-300 prose-p:leading-relaxed
-                  prose-headings:text-teal-400 
-                  prose-a:text-pink-400 hover:prose-a:text-pink-300 prose-a:transition-colors
-                  prose-strong:text-slate-100 
-                  prose-ul:text-slate-300 prose-ul:list-disc prose-li:marker:text-teal-400
-                  prose-ol:text-slate-300 prose-ol:list-decimal prose-li:marker:text-teal-400
-                  prose-blockquote:border-l-teal-500 prose-blockquote:text-slate-400
-                  prose-invert"
-      >
+      
+      {/* Content */}
+      <div className="relative text-slate-200 leading-relaxed space-y-4">
         {children}
       </div>
+      
+      {/* Decorative corner elements */}
+      <div className="absolute top-4 right-4 w-3 h-3 border-t-2 border-r-2 border-cyan-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+      <div className="absolute bottom-4 left-4 w-3 h-3 border-b-2 border-l-2 border-purple-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
     </div>
   );
 };
