@@ -17,6 +17,36 @@ export const Header: React.FC = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  // Close mobile menu when clicking outside or on escape key
+  React.useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    const handleClickOutside = (e: MouseEvent) => {
+      const target = e.target as Element;
+      if (isMobileMenuOpen && !target.closest('.mobile-menu-panel') && !target.closest('.mobile-menu-button')) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    if (isMobileMenuOpen) {
+      document.addEventListener('keydown', handleEscape);
+      document.addEventListener('mousedown', handleClickOutside);
+      document.body.style.overflow = 'hidden'; // Prevent background scroll
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleEscape);
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMobileMenuOpen]);
+
   return (
     <header className="relative bg-black/20 backdrop-blur-xl shadow-2xl sticky top-0 z-50 border-b border-cyan-500/30">
       {/* Animated background pattern */}
@@ -50,8 +80,9 @@ export const Header: React.FC = () => {
           {/* Mobile menu button */}
           <button
             onClick={toggleMobileMenu}
-            className="lg:hidden relative z-50 p-2 rounded-xl glass-effect border border-cyan-500/30 hover:border-cyan-400/50 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-black"
-            aria-label="Toggle mobile menu"
+            className="lg:hidden mobile-menu-button relative z-50 p-2 rounded-xl glass-effect border border-cyan-500/30 hover:border-cyan-400/50 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-black"
+            aria-label={isMobileMenuOpen ? "Fechar menu" : "Abrir menu"}
+            aria-expanded={isMobileMenuOpen}
           >
             <div className="w-6 h-6 relative">
               <span className={`block absolute h-0.5 w-6 bg-gradient-to-r from-cyan-400 to-purple-400 transform transition duration-300 ease-in-out ${isMobileMenuOpen ? 'rotate-45 translate-y-2' : 'translate-y-0'}`}></span>
@@ -113,7 +144,7 @@ export const Header: React.FC = () => {
 
         {/* Mobile Navigation Menu */}
         <div className={`lg:hidden fixed inset-0 z-40 transition-all duration-300 ease-in-out ${
-          isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+          isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
         }`}>
           {/* Backdrop */}
           <div 
@@ -122,21 +153,22 @@ export const Header: React.FC = () => {
           ></div>
           
           {/* Menu Panel */}
-          <div className={`absolute top-0 right-0 h-full w-80 max-w-[85vw] bg-black/95 backdrop-blur-xl border-l border-cyan-500/30 transform transition-transform duration-300 ease-in-out ${
+          <div className={`mobile-menu-panel absolute top-0 right-0 h-full w-80 max-w-[85vw] bg-black/95 backdrop-blur-xl border-l border-cyan-500/30 transform transition-transform duration-300 ease-in-out overflow-y-auto ${
             isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
           }`}>
             {/* Menu header */}
-            <div className="p-6 border-b border-cyan-500/20">
+            <div className="sticky top-0 p-6 border-b border-cyan-500/20 bg-black/95 backdrop-blur-xl">
               <div className="flex items-center justify-between">
                 <h2 className="text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400">
                   Navegação
                 </h2>
                 <button
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="p-2 rounded-lg glass-effect border border-cyan-500/30 hover:border-cyan-400/50 transition-all duration-300"
+                  className="p-2 rounded-lg glass-effect border border-cyan-500/30 hover:border-cyan-400/50 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-cyan-500"
                   aria-label="Fechar menu"
+                  type="button"
                 >
-                  <svg className="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                   </svg>
                 </button>
@@ -153,13 +185,14 @@ export const Header: React.FC = () => {
                       <button
                         onClick={() => handleNavigation(link.path)}
                         className={`group w-full flex items-center px-4 py-4 rounded-xl text-base font-medium transition-all duration-300 ease-in-out cyber-border
-                                   focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black focus:ring-cyan-500 overflow-hidden
+                                   focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black focus:ring-cyan-500 overflow-hidden text-left
                                    ${isActive 
                                      ? 'glass-effect text-cyan-300 shadow-lg shadow-cyan-500/25 border-cyan-400/30 bg-gradient-to-r from-cyan-500/20 to-purple-500/20' 
                                      : 'text-slate-300 hover:text-white hover:glass-effect hover:shadow-lg hover:shadow-purple-500/25 border-transparent hover:border-purple-400/30 hover:bg-gradient-to-r hover:from-purple-500/10 hover:to-pink-500/10'
                                    }`}
                         style={{ animationDelay: `${index * 50}ms` }}
                         aria-current={isActive ? 'page' : undefined}
+                        type="button"
                       >
                         {/* Icon */}
                         {link.icon && (
@@ -187,7 +220,7 @@ export const Header: React.FC = () => {
             </nav>
 
             {/* Footer info in mobile menu */}
-            <div className="absolute bottom-6 left-6 right-6">
+            <div className="sticky bottom-0 p-6 mt-auto bg-black/95 backdrop-blur-xl">
               <div className="glass-effect rounded-xl p-4 border border-purple-500/20 text-center">
                 <div className="text-xs text-slate-400 mb-2">
                   Fan Hub Portal
