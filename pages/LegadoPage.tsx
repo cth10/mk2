@@ -29,7 +29,7 @@ export const LegadoPage: React.FC = () => {
           </li>
         </ul>
          <img 
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/MIKU_EXPO_2016_Japan_Tour_Sapporo_NITORI_Culture_Hall_-_Hatsune_Miku_%2824800550980%29.jpg/1024px-MIKU_EXPO_2016_Japan_Tour_Sapporo_NITORI_Culture_Hall_-_Hatsune_Miku_%2824800550980%29.jpg" 
+            src="/hatsune-miku-expo.png" 
             alt="Hatsune Miku se apresentando em show holográfico no Miku Expo" 
             className="rounded-xl shadow-xl w-full my-6 object-cover aspect-video max-h-[350px] transition-transform duration-300 hover:scale-105"
           />
