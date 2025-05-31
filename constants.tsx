@@ -1,9 +1,22 @@
-
 import React from 'react';
 import { HomePage } from './pages/HomePage';
 import { SobreMikuPage } from './pages/SobreMikuPage';
 import { SobreVocaloidPage } from './pages/SobreVocaloidPage';
 import { LegadoPage } from './pages/LegadoPage';
+
+// Placeholder components for new pages
+const MusicaPage = () => <div>Música Page</div>;
+const ArtePage = () => <div>Arte Page</div>;
+const TecnologiaPage = () => <div>Tecnologia Page</div>;
+const CulturaPage = () => <div>Cultura Page</div>;
+const ComunidadePage = () => <div>Comunidade Page</div>;
+
+// Placeholder icons for new pages
+const MusicIcon = ({ className }: { className?: string }) => <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={className || "w-6 h-6"}><path strokeLinecap="round" strokeLinejoin="round" d="M9 9l7-7 7 7-7 7"/></svg>;
+const ArtIcon = ({ className }: { className?: string }) => <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={className || "w-6 h-6"}><path strokeLinecap="round" d="M12 21v-3m0 0V6m0 15v-3M6 10.186L18 4.814M6 14.814L18 10.186M6 19.814L18 14.814"/></svg>;
+const TechIcon = ({ className }: { className?: string }) => <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={className || "w-6 h-6"}><path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75L5.25 17.25m11.99-10.5a2.25 2.25 0 00-3.182 3.182L19.5 19.5m-10.5 11.99a2.25 2.25 0 01-3.181-3.182l2.69-2.69h3.182a3 3 0 003-3v-2.25M16.5 6.75a3 3 0 013 3v2.25m0 0h-3.182a2.25 2.25 0 01-3-3V6.75m3 3L5.25 3.75m11.25 0a2.25 2.25 0 013 3L5.25 20.25"/></svg>;
+const CultureIcon = ({ className }: { className?: string }) => <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={className || "w-6 h-6"}><path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 008.716-4.037m-7.32-1.732a5.004 5.004 0 004.088-1.787m-7.32-1.732A5.004 5.004 0 004.088 9.878m7.32 7.32a9.004 9.004 0 00-8.715 4.037M12 7.5a2.25 2.25 0 110-4.5 2.25 2.25 0 010 4.5z"/></svg>;
+const CommunityIcon = ({ className }: { className?: string }) => <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={className || "w-6 h-6"}><path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479m-3.741.479c-.3 0-.225.24-.225.678v2.615c0 .744-.333 1.128-.669 1.128a1.121 1.121 0 01-1.56-.855l-1.52-1.314a5.713 5.713 0 00-.224-.419M15 18.72a9.094 9.094 0 00-3.741-.479m3.741.479c.3 0 .225.24.225.678v2.615c0 .744.333 1.128.669 1.128a1.121 1.121 0 011.56-.855l1.52-1.314a5.713 5.713 0 00.224-.419M9 18.72a9.094 9.094 0 00-3.741-.479m3.741.479c-.3 0-.225.24-.225.678v2.615c0 .744-.333 1.128-.669 1.128a1.121 1.121 0 01-1.56-.855l-1.52-1.314a5.713 5.713 0 00-.224-.419M3 18.72V9.75a3.75 3.75 0 013.75-3.75h10.5a3.75 3.75 0 013.75 3.75v8.97a3.75 3.75 0 01-3.75 3.75H6.75a3.75 3.75 0 01-3.75-3.75z"/></svg>;
 
 // Types
 export interface PageRoute {
@@ -46,14 +59,14 @@ export const MikuBrandIcon = ({ className }: { className?: string }) => (
     {/* Twin tails */}
     <path d="M16,8 C8,20 8,35 16,50 L20,50 C12,35 12,20 20,8 Z" fill="currentColor" opacity="0.9" />
     <path d="M48,8 C56,20 56,35 48,50 L44,50 C52,35 52,20 44,8 Z" fill="currentColor" opacity="0.9"/>
-    
+
     {/* Head */}
     <circle cx="32" cy="16" r="12" fill="currentColor" opacity="0.8"/>
-    
+
     {/* Hair accessories */}
     <circle cx="20" cy="18" r="4" fill="currentColor" opacity="0.6"/>
     <circle cx="44" cy="18" r="4" fill="currentColor" opacity="0.6"/>
-    
+
     {/* Additional details */}
     <path d="M32,28 L32,40" stroke="currentColor" strokeWidth="2" opacity="0.7"/>
     <circle cx="32" cy="42" r="2" fill="currentColor" opacity="0.7"/>
@@ -66,6 +79,11 @@ export const NAV_LINKS: PageRoute[] = [
   { path: '/sobre-miku', name: 'Sobre Miku', component: SobreMikuPage, icon: MikuOutlineIcon },
   { path: '/sobre-vocaloid', name: 'Sobre Vocaloid', component: SobreVocaloidPage, icon: InfoIcon },
   { path: '/legado', name: 'Legado', component: LegadoPage, icon: SparklesIcon },
+  { path: '/musica', name: 'Música', component: MusicaPage, icon: MusicIcon },
+  { path: '/arte', name: 'Arte', component: ArtePage, icon: ArtIcon },
+  { path: '/tecnologia', name: 'Tecnologia', component: TecnologiaPage, icon: TechIcon },
+  { path: '/cultura', name: 'Cultura', component: CulturaPage, icon: CultureIcon },
+  { path: '/comunidade', name: 'Comunidade', component: ComunidadePage, icon: CommunityIcon },
 ];
 
 // Site configuration
