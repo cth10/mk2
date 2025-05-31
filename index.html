@@ -1,75 +1,102 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hatsune Miku Fan Hub</title>
+  <title>初音ミク Fan Hub ◆ Hatsune Miku</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          screens: {
+            'xs': '475px',
+          },
+          fontFamily: {
+            'noto-jp': ['Noto Sans JP', 'sans-serif'],
+            'inter': ['Inter', 'sans-serif'],
+          },
+          animation: {
+            'float': 'float 6s ease-in-out infinite',
+            'pulse-glow': 'pulse-glow 2s ease-in-out infinite alternate',
+            'slide-up': 'slideUp 0.8s ease-out',
+            'fade-in': 'fadeIn 1s ease-out',
+            'sparkle': 'sparkle 1.5s ease-in-out infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-20px)' },
+            },
+            'pulse-glow': {
+              '0%': { boxShadow: '0 0 20px rgba(59, 130, 246, 0.5)' },
+              '100%': { boxShadow: '0 0 40px rgba(59, 130, 246, 0.8)' },
+            },
+            slideUp: {
+              '0%': { transform: 'translateY(50px)', opacity: '0' },
+              '100%': { transform: 'translateY(0)', opacity: '1' },
+            },
+            fadeIn: {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' },
+            },
+            sparkle: {
+              '0%, 100%': { transform: 'scale(1) rotate(0deg)', opacity: '0.7' },
+              '50%': { transform: 'scale(1.2) rotate(180deg)', opacity: '1' },
+            },
+          },
+          backgroundImage: {
+            'cyber-gradient': 'linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%)',
+            'miku-gradient': 'linear-gradient(135deg, #00f5ff 0%, #ff00ff 25%, #00ff88 50%, #ffaa00 75%, #aa00ff 100%)',
+            'glass-gradient': 'linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)',
+          },
+          backdropBlur: {
+            'xs': '2px',
+          }
+        }
+      }
+    }
+  </script>
   <style>
-    /* Custom scrollbar for dark theme */
-    ::-webkit-scrollbar {
-      width: 10px;
+    body {
+      background: linear-gradient(135deg, #0c0a1e 0%, #1a1139 25%, #2d1b69 50%, #1a1139 75%, #0c0a1e 100%);
+      background-attachment: fixed;
     }
-    ::-webkit-scrollbar-track {
-      background: #1e293b; /* slate-800 */
+    .glass-effect {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
-    ::-webkit-scrollbar-thumb {
-      background: #0d9488; /* teal-600 */
-      border-radius: 5px;
-      border: 2px solid #1e293b; /* slate-800 to give a thinner look */
+    .neon-glow {
+      text-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor;
     }
-    ::-webkit-scrollbar-thumb:hover {
-      background: #0f766e; /* teal-700 */
+    .cyber-border {
+      position: relative;
+      overflow: hidden;
     }
-
-    /* Basic fadeIn animation (retained if PageWrapper still uses it, but new ones added) */
-    @keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(10px); }
-      100% { opacity: 1; transform: translateY(0); }
+    .cyber-border::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, transparent 30%, rgba(0, 245, 255, 0.5) 50%, transparent 70%);
+      transform: translateX(-100%);
+      transition: transform 0.6s;
     }
-    .animate-fadeIn { animation: fadeIn 0.5s ease-out; }
-
-    /* New slideUpFadeIn animation */
-    @keyframes slideUpFadeIn {
-      0% { opacity: 0; transform: translateY(30px); }
-      100% { opacity: 1; transform: translateY(0); }
+    .cyber-border:hover::before {
+      transform: translateX(100%);
     }
-    .animate-slideUpFadeIn { 
-      animation: slideUpFadeIn 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; 
-    }
-
-    /* For Hero Text */
-     @keyframes textFocusIn {
-      0% {
-        filter: blur(12px);
-        opacity: 0;
-      }
-      100% {
-        filter: blur(0px);
-        opacity: 1;
-      }
-    }
-    .animate-textFocusIn {
-	    animation: textFocusIn 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
-    }
-
-
   </style>
-
-<script type="importmap">
-{
-  "imports": {
-    "react": "https://esm.sh/react@^19.1.0",
-    "react/": "https://esm.sh/react@^19.1.0/",
-    "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
-    "react-router-dom": "https://esm.sh/react-router-dom@^7.6.1"
-  }
-}
-</script>
-  <script type="module" crossorigin src="/assets/index-kBkuKLRi.js"></script>
+  <script type="module" crossorigin src="/assets/index-B11p-6LH.js"></script>
   <link rel="stylesheet" crossorigin href="/assets/index-CIfVvUo9.css">
 </head>
-<body class="bg-slate-900 text-slate-200 min-h-screen antialiased">
-  <div id="root"></div>
+<body class="font-inter">
+  <div id="root"></div>
 </body>
 </html>
