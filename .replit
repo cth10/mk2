@@ -1,7 +1,7 @@
 modules = ["nodejs-20"]
 
 [workflows]
-runButton = "Start Web Server"
+runButton = "Start Vite Dev Server"
 
 [[workflows.workflow]]
 name = "Start Web Server"
@@ -11,6 +11,15 @@ mode = "sequential"
 [[workflows.workflow.tasks]]
 task = "shell.exec"
 args = "npx serve . -p 5000"
+
+[[workflows.workflow]]
+name = "Start Vite Dev Server"
+author = 43122532
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "npm run dev"
 
 [[ports]]
 localPort = 5173
