@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { PageWrapper } from '../components/PageWrapper';
 import { ContentCard } from '../components/ContentCard';
 import { HomeIcon, SparklesIcon, InfoIcon, MikuBrandIcon } from '../constants';
@@ -70,6 +71,12 @@ const HeroSection: React.FC = () => {
 };
 
 export const HomePage: React.FC = () => {
+  const navigate = useNavigate();
+
+  const handleSectionClick = (path: string) => {
+    navigate(path);
+  };
+
   return (
     <>
       <HeroSection />
@@ -136,14 +143,21 @@ export const HomePage: React.FC = () => {
                 Explore cada seção do nosso hub para uma jornada completa pelo universo virtual mais cativante da era digital!
               </p>
               <div className="flex flex-wrap gap-2">
-                {['Música', 'Arte', 'Tecnologia', 'Cultura', 'Comunidade'].map((tag, index) => (
-                  <span 
-                    key={tag}
-                    className="px-3 py-1 text-sm glass-effect rounded-full border border-purple-400/30 text-purple-300 hover:border-purple-400/60 transition-colors duration-300 cursor-pointer"
+                {[
+                  { name: 'Música', path: '/musica' },
+                  { name: 'Arte', path: '/arte' },
+                  { name: 'Tecnologia', path: '/tecnologia' },
+                  { name: 'Cultura', path: '/cultura' },
+                  { name: 'Comunidade', path: '/comunidade' }
+                ].map((section, index) => (
+                  <button 
+                    key={section.name}
+                    onClick={() => handleSectionClick(section.path)}
+                    className="px-3 py-1 text-sm glass-effect rounded-full border border-purple-400/30 text-purple-300 hover:border-purple-400/60 hover:bg-purple-400/10 transition-all duration-300 cursor-pointer transform hover:scale-105"
                     style={{ animationDelay: `${index * 100}ms` }}
                   >
-                    {tag}
-                  </span>
+                    {section.name}
+                  </button>
                 ))}
               </div>
             </div>
