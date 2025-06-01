@@ -64,6 +64,16 @@ const AnimatedLyrics: React.FC = () => {
       text: "🔄 'Mais uma vez, mais uma vez. \"Eu vou continuar rolando hoje também,\" A menina diz, a menina diz, enquanto entoa significado em suas palavras!' 🔄",
       song: "- Rolling Girl",
       gradient: "from-green-400 via-cyan-400 to-blue-400"
+    },
+    {
+      text: "🌟 'Vamos cantar e dançar, feliz aniversário. Vamos plantar uma macieira no deserto. Dar uma cambalhota e então, adeus. Depois, deixem que outra pessoa faça o que quiser' 🌟",
+      song: "- Suna no Wakusei",
+      gradient: "from-yellow-400 via-orange-400 to-red-400"
+    },
+    {
+      text: "👻 'Mayday! Mesmo que você perceba que sou eu, não precisa mais me abraçar, está tudo bem. Ei, Mayday! Se você entender quem eu sou, você zombaria de mim mais uma vez?' 👻",
+      song: "- Ghost Rule",
+      gradient: "from-gray-400 via-purple-400 to-indigo-400"
     }
   ];
 
