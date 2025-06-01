@@ -36,9 +36,14 @@ const AnimatedLyrics: React.FC = () => {
 
   const mikuLyrics = [
     {
-      text: "🎵 'Mesmo que o mundo todo desabe, eu vou continuar cantando' 🎵",
+      text: "🌸 'Mil cerejeiras, em meio à noite. Sua voz nem mesmo alcança aqui. Aqui é um banquete, uma jaula de aço' 🌸",
       song: "- Senbonzakura",
-      gradient: "from-pink-400 via-cyan-400 to-purple-400"
+      gradient: "from-pink-400 via-red-400 to-rose-400"
+    },
+    {
+      text: "🎵 'Palavras que quero te dizer, sons que quero te dar. Laços de sentimentos formam um mundo, conectando tudo, conectando a todo lugar' 🎵",
+      song: "- Tell Your World",
+      gradient: "from-cyan-400 via-blue-400 to-purple-400"
     },
     {
       text: "🎶 'No futuro digital, nossa voz ecoa eternamente' 🎶",
@@ -47,7 +52,7 @@ const AnimatedLyrics: React.FC = () => {
     },
     {
       text: "🎵 'Entre zeros e uns, nossos corações batem como um só' 🎵",
-      song: "- Tell Your World",
+      song: "- Rolling Girl",
       gradient: "from-purple-400 via-cyan-400 to-green-400"
     },
     {
@@ -56,14 +61,9 @@ const AnimatedLyrics: React.FC = () => {
       gradient: "from-green-400 via-cyan-400 to-purple-400"
     },
     {
-      text: "🎵 'Através da música, conectamos mundos impossíveis' 🎵",
-      song: "- Rolling Girl",
-      gradient: "from-yellow-400 via-pink-400 to-cyan-400"
-    },
-    {
-      text: "🎶 'No palco holográfico, nascemos para brilhar' 🎶",
+      text: "🎵 'No palco holográfico, nascemos para brilhar eternamente' 🎵",
       song: "- Disappearance of Hatsune Miku",
-      gradient: "from-cyan-400 via-blue-400 to-purple-400"
+      gradient: "from-yellow-400 via-pink-400 to-cyan-400"
     }
   ];
 
