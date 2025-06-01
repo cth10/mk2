@@ -32,7 +32,7 @@ const StarIcon = ({ className }: { className?: string }) => (
 
 const AnimatedLyrics: React.FC = () => {
   const [currentLyricIndex, setCurrentLyricIndex] = React.useState(0);
-  const [fadeClass, setFadeClass] = React.useState('animate-fade-in');
+  const [isVisible, setIsVisible] = React.useState(true);
 
   const mikuLyrics = [
     {
@@ -67,41 +67,60 @@ const AnimatedLyrics: React.FC = () => {
     }
   ];
 
+  // Função para calcular tempo baseado no tamanho do texto
+  const calculateDisplayTime = (text: string) => {
+    const baseTime = 4000; // 4 segundos base
+    const textLength = text.length;
+    // Adiciona tempo extra para textos longos (aproximadamente 100ms por caractere extra após 100 chars)
+    const extraTime = textLength > 100 ? (textLength - 100) * 50 : 0;
+    return Math.max(baseTime, baseTime + extraTime);
+  };
+
   React.useEffect(() => {
-    const interval = setInterval(() => {
-      setFadeClass('opacity-0 scale-95');
+    const currentText = mikuLyrics[currentLyricIndex].text;
+    const displayTime = calculateDisplayTime(currentText);
+    
+    const timeout = setTimeout(() => {
+      setIsVisible(false);
       
       setTimeout(() => {
         setCurrentLyricIndex((prev) => (prev + 1) % mikuLyrics.length);
-        setFadeClass('animate-fade-in opacity-100 scale-100');
-      }, 500);
-    }, 4000);
+        setIsVisible(true);
+      }, 600); // Tempo de transição mais suave
+    }, displayTime);
 
-    return () => clearInterval(interval);
-  }, []);
+    return () => clearTimeout(timeout);
+  }, [currentLyricIndex, mikuLyrics]);
 
   const currentLyric = mikuLyrics[currentLyricIndex];
 
   return (
-    <div className="text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl mb-8 sm:mb-12 max-w-4xl mx-auto leading-relaxed px-4 min-h-[120px] flex flex-col justify-center">
-      <p 
-        className={`transition-all duration-500 ease-in-out ${fadeClass} text-slate-300`}
-        style={{ animationDelay: '1s' }}
+    <div className="text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl mb-8 sm:mb-12 max-w-4xl mx-auto leading-relaxed px-4 min-h-[140px] flex flex-col justify-center">
+      <div 
+        className={`transition-all duration-600 ease-in-out transform ${
+          isVisible 
+            ? 'opacity-100 scale-100 translate-y-0' 
+            : 'opacity-0 scale-95 translate-y-2'
+        }`}
       >
-        <span className={`text-transparent bg-clip-text bg-gradient-to-r ${currentLyric.gradient} font-bold neon-glow block mb-2`}>
-          {currentLyric.text}
-        </span>
-        <span className="text-sm sm:text-base md:text-lg text-slate-400 font-light italic block">
-          {currentLyric.song}
-        </span>
-      </p>
+        <p className="text-slate-300">
+          <span className={`text-transparent bg-clip-text bg-gradient-to-r ${currentLyric.gradient} font-bold neon-glow block mb-3 leading-relaxed`}>
+            {currentLyric.text}
+          </span>
+          <span className="text-sm sm:text-base md:text-lg text-slate-400 font-light italic block">
+            {currentLyric.song}
+          </span>
+        </p>
+      </div>
       
       {/* Animated music notes */}
-      <div className="flex justify-center mt-4 space-x-4">
+      <div className="flex justify-center mt-6 space-x-4">
         {[...Array(5)].map((_, i) => (
           <div
             key={i}
-            className="text-cyan-400/60 text-lg animate-bounce"
+            className={`text-cyan-400/60 text-lg transition-all duration-300 ${
+              isVisible ? 'animate-bounce opacity-100' : 'opacity-30'
+            }`}
             style={{ 
               animationDelay: `${i * 0.2}s`,
               animationDuration: '2s'
