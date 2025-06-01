@@ -105,7 +105,7 @@ export const HomePage: React.FC = () => {
   return (
     <>
       <HeroSection />
-      <PageWrapper title="Bem-vindo ao Mundo de Hatsune Miku - Fan Hub Brasil" titleIcon={<HomeIcon />} className="pt-0" id="main-content-start">
+      <PageWrapper title="Bem-vindo ao Mundo de Hatsune Miku - Fan Hub Brasil" titleIcon={<HomeIcon />} className="pt-24 mt-16" id="main-content-start">
         <ContentCard title={<><SparkleIcon className="inline w-6 h-6 mr-2 text-cyan-400" />Olá! Mergulhe no Mundo da Miku</>}>
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
             <div className="order-2 lg:order-1 space-y-6">
