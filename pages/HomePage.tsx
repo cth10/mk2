@@ -33,6 +33,7 @@ const StarIcon = ({ className }: { className?: string }) => (
 const AnimatedLyrics: React.FC = () => {
   const [currentLyricIndex, setCurrentLyricIndex] = React.useState(0);
   const [isVisible, setIsVisible] = React.useState(true);
+  const [shuffledLyrics, setShuffledLyrics] = React.useState<typeof mikuLyrics>([]);
 
   const mikuLyrics = [
     {
@@ -77,6 +78,21 @@ const AnimatedLyrics: React.FC = () => {
     }
   ];
 
+  // Função para embaralhar array
+  const shuffleArray = (array: typeof mikuLyrics) => {
+    const shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+  };
+
+  // Inicializar array embaralhado
+  React.useEffect(() => {
+    setShuffledLyrics(shuffleArray(mikuLyrics));
+  }, []);
+
   // Função para calcular tempo baseado no tamanho do texto
   const calculateDisplayTime = (text: string) => {
     const baseTime = 4000; // 4 segundos base
@@ -87,22 +103,38 @@ const AnimatedLyrics: React.FC = () => {
   };
 
   React.useEffect(() => {
-    const currentText = mikuLyrics[currentLyricIndex].text;
+    if (shuffledLyrics.length === 0) return;
+    
+    const currentText = shuffledLyrics[currentLyricIndex].text;
     const displayTime = calculateDisplayTime(currentText);
     
     const timeout = setTimeout(() => {
       setIsVisible(false);
       
       setTimeout(() => {
-        setCurrentLyricIndex((prev) => (prev + 1) % mikuLyrics.length);
+        const nextIndex = currentLyricIndex + 1;
+        
+        // Se chegou ao final do array, embaralha novamente
+        if (nextIndex >= shuffledLyrics.length) {
+          setShuffledLyrics(shuffleArray(mikuLyrics));
+          setCurrentLyricIndex(0);
+        } else {
+          setCurrentLyricIndex(nextIndex);
+        }
+        
         setIsVisible(true);
       }, 600); // Tempo de transição mais suave
     }, displayTime);
 
     return () => clearTimeout(timeout);
-  }, [currentLyricIndex, mikuLyrics]);
+  }, [currentLyricIndex, shuffledLyrics, mikuLyrics]);
 
-  const currentLyric = mikuLyrics[currentLyricIndex];
+  // Proteção para quando o array ainda não foi embaralhado
+  if (shuffledLyrics.length === 0) {
+    return <div className="min-h-[140px]"></div>;
+  }
+
+  const currentLyric = shuffledLyrics[currentLyricIndex];
 
   return (
     <div className="text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl mb-8 sm:mb-12 max-w-4xl mx-auto leading-relaxed px-4 min-h-[140px] flex flex-col justify-center">
