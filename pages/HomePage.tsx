@@ -30,6 +30,91 @@ const StarIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
+const AnimatedLyrics: React.FC = () => {
+  const [currentLyricIndex, setCurrentLyricIndex] = React.useState(0);
+  const [fadeClass, setFadeClass] = React.useState('animate-fade-in');
+
+  const mikuLyrics = [
+    {
+      text: "🎵 'Mesmo que o mundo todo desabe, eu vou continuar cantando' 🎵",
+      song: "- Senbonzakura",
+      gradient: "from-pink-400 via-cyan-400 to-purple-400"
+    },
+    {
+      text: "🎶 'No futuro digital, nossa voz ecoa eternamente' 🎶",
+      song: "- World is Mine",
+      gradient: "from-cyan-400 via-purple-400 to-pink-400"
+    },
+    {
+      text: "🎵 'Entre zeros e uns, nossos corações batem como um só' 🎵",
+      song: "- Tell Your World",
+      gradient: "from-purple-400 via-cyan-400 to-green-400"
+    },
+    {
+      text: "🎶 'Nas estrelas virtuais, encontramos nossa verdadeira essência' 🎶",
+      song: "- Love is War",
+      gradient: "from-green-400 via-cyan-400 to-purple-400"
+    },
+    {
+      text: "🎵 'Através da música, conectamos mundos impossíveis' 🎵",
+      song: "- Rolling Girl",
+      gradient: "from-yellow-400 via-pink-400 to-cyan-400"
+    },
+    {
+      text: "🎶 'No palco holográfico, nascemos para brilhar' 🎶",
+      song: "- Disappearance of Hatsune Miku",
+      gradient: "from-cyan-400 via-blue-400 to-purple-400"
+    }
+  ];
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setFadeClass('opacity-0 scale-95');
+      
+      setTimeout(() => {
+        setCurrentLyricIndex((prev) => (prev + 1) % mikuLyrics.length);
+        setFadeClass('animate-fade-in opacity-100 scale-100');
+      }, 500);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const currentLyric = mikuLyrics[currentLyricIndex];
+
+  return (
+    <div className="text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl mb-8 sm:mb-12 max-w-4xl mx-auto leading-relaxed px-4 min-h-[120px] flex flex-col justify-center">
+      <p 
+        className={`transition-all duration-500 ease-in-out ${fadeClass} text-slate-300`}
+        style={{ animationDelay: '1s' }}
+      >
+        <span className={`text-transparent bg-clip-text bg-gradient-to-r ${currentLyric.gradient} font-bold neon-glow block mb-2`}>
+          {currentLyric.text}
+        </span>
+        <span className="text-sm sm:text-base md:text-lg text-slate-400 font-light italic block">
+          {currentLyric.song}
+        </span>
+      </p>
+      
+      {/* Animated music notes */}
+      <div className="flex justify-center mt-4 space-x-4">
+        {[...Array(5)].map((_, i) => (
+          <div
+            key={i}
+            className="text-cyan-400/60 text-lg animate-bounce"
+            style={{ 
+              animationDelay: `${i * 0.2}s`,
+              animationDuration: '2s'
+            }}
+          >
+            ♪
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
 const HeroSection: React.FC = () => {
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -66,10 +151,8 @@ const HeroSection: React.FC = () => {
           </span>
         </h1>
 
-        {/* Subtitle */}
-        <p className="text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl text-slate-300 mb-8 sm:mb-12 max-w-4xl mx-auto leading-relaxed animate-fade-in px-4" style={{ animationDelay: '1s' }}>
-          Mergulhe no universo holográfico da <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400 font-bold">diva virtual</span> mais icônica do mundo
-        </p>
+        {/* Animated lyrics subtitle */}
+        <AnimatedLyrics />
 
         {/* CTA Button */}
         <div className="animate-fade-in px-4" style={{ animationDelay: '1.5s' }}>
