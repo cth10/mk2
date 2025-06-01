@@ -46,24 +46,24 @@ const AnimatedLyrics: React.FC = () => {
       gradient: "from-cyan-400 via-blue-400 to-purple-400"
     },
     {
-      text: "🎶 'No futuro digital, nossa voz ecoa eternamente' 🎶",
+      text: "💫 'Eu quero cantar... ain... ainda... eu quero cantar...' 💫",
+      song: "- The Disappearance of Hatsune Miku",
+      gradient: "from-purple-400 via-cyan-400 to-blue-400"
+    },
+    {
+      text: "👑 'Eu sou a princesa número 1 do mundo. E é assim que você vai me tratar, entendeu?' 👑",
       song: "- World is Mine",
-      gradient: "from-cyan-400 via-purple-400 to-pink-400"
+      gradient: "from-pink-400 via-purple-400 to-cyan-400"
     },
     {
-      text: "🎵 'Entre zeros e uns, nossos corações batem como um só' 🎵",
+      text: "⚔️ 'Vou começar, isto é uma guerra! Ter que ver você parecendo tão feliz! Um amor fervoroso, isso é um pecado. Eu vou te mostrar os meus sentimentos!' ⚔️",
+      song: "- Koi wa Sensou",
+      gradient: "from-red-400 via-pink-400 to-purple-400"
+    },
+    {
+      text: "🔄 'Mais uma vez, mais uma vez. \"Eu vou continuar rolando hoje também,\" A menina diz, a menina diz, enquanto entoa significado em suas palavras!' 🔄",
       song: "- Rolling Girl",
-      gradient: "from-purple-400 via-cyan-400 to-green-400"
-    },
-    {
-      text: "🎶 'Nas estrelas virtuais, encontramos nossa verdadeira essência' 🎶",
-      song: "- Love is War",
-      gradient: "from-green-400 via-cyan-400 to-purple-400"
-    },
-    {
-      text: "🎵 'No palco holográfico, nascemos para brilhar eternamente' 🎵",
-      song: "- Disappearance of Hatsune Miku",
-      gradient: "from-yellow-400 via-pink-400 to-cyan-400"
+      gradient: "from-green-400 via-cyan-400 to-blue-400"
     }
   ];
 
