@@ -46,7 +46,7 @@ const WaveForm = () => (
 
 export const MusicaPage: React.FC = () => {
   return (
-    <PageWrapper title="🎵 Música Vocaloid" titleIcon={<MusicIcon />}>
+    <PageWrapper title="🎵 Música Vocaloid" description="Explore o universo musical de Vocaloid. Descubra os maiores sucessos de Hatsune Miku e outros sintetizadores de voz virtuais." titleIcon={<MusicIcon />}>
       <ContentCard title="O Universo Musical de Hatsune Miku">
         <NoteVisualizer />
         <p className="mt-6">

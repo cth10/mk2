@@ -1,9 +1,10 @@
 
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { PageWrapper } from '../components/PageWrapper';
 import { ContentCard } from '../components/ContentCard';
 import { NewsIcon, MikuBrandIcon } from '../constants';
+import { newsData } from '../utils/newsData';
 
 const NewsCard = ({ title, summary, date, slug, featured = false }: {
   title: string;
@@ -12,16 +13,14 @@ const NewsCard = ({ title, summary, date, slug, featured = false }: {
   slug: string;
   featured?: boolean;
 }) => {
-  const navigate = useNavigate();
-  
   return (
-    <div 
-      className={`glass-effect rounded-xl p-6 border transition-all duration-300 hover:scale-105 cursor-pointer group ${
+    <Link 
+      to={`/noticias/${slug}`}
+      className={`glass-effect rounded-xl p-6 border transition-all duration-300 hover:scale-105 cursor-pointer group block text-left ${
         featured 
           ? 'border-cyan-400/50 news-glow' 
           : 'border-purple-500/20 hover:border-purple-400/40'
       }`}
-      onClick={() => navigate(`/noticias/${slug}`)}
     >
       <div className="flex items-start justify-between mb-4">
         <div className="flex items-center space-x-2">
@@ -60,20 +59,17 @@ const NewsCard = ({ title, summary, date, slug, featured = false }: {
           ))}
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
 export const NoticiasPage: React.FC = () => {
-  const noticias = [
-    {
-      title: "Celebração de 20 Anos e Novidades da Yamaha",
-      summary: "A Yamaha lançou um site especial para comemorar o 20º aniversário do VOCALOID. Este é um grande marco, celebrando duas décadas de música e criatividade impulsionadas por esta tecnologia. A empresa também anunciou atualizações para o VOCALOID6 e novos bancos de voz com inteligência artificial.",
-      date: "Janeiro 2025",
-      slug: "yamaha-20-anos",
-      featured: true
-    }
-  ];
+  const noticias = newsData.sort((a, b) => {
+      // Sort by featured first, then maybe date? 
+      // For now just preserve order or featured on top.
+      // But newsData is already sorted manually in my file definitions (newest first).
+      return 0; 
+  });
 
   return (
     <PageWrapper title="Últimas Notícias do Mundo Vocaloid" titleIcon={<NewsIcon />}>

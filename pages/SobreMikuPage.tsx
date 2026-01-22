@@ -6,7 +6,7 @@ import { MikuOutlineIcon } from '../constants';
 
 export const SobreMikuPage: React.FC = () => {
   return (
-    <PageWrapper title="Sobre Hatsune Miku" titleIcon={<MikuOutlineIcon />}>
+    <PageWrapper title="Sobre Hatsune Miku" description="Saiba tudo sobre Hatsune Miku: idade, altura, origem e como ela se tornou um fenômeno global da música e cultura pop." titleIcon={<MikuOutlineIcon />}>
       <ContentCard title="Perfil da Diva Virtual">
         <div className="flex flex-col lg:flex-row items-start gap-8">
           <img 

@@ -1,17 +1,26 @@
 
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 
 interface PageWrapperProps {
   title: string;
+  description?: string;
   children: React.ReactNode;
   titleIcon?: React.ReactNode;
   className?: string;
   id?: string;
 }
 
-export const PageWrapper: React.FC<PageWrapperProps> = ({ title, children, titleIcon, className, id }) => {
+export const PageWrapper: React.FC<PageWrapperProps> = ({ title, description, children, titleIcon, className, id }) => {
   return (
-    <div id={id} className={`relative animate-slide-up container mx-auto px-4 sm:px-6 lg:px-8 ${className || ''}`}>
+    <>
+      <Helmet>
+        <title>{title} | Hatsune Miku Fan Hub Brasil</title>
+        <meta name="description" content={description || "O hub definitivo para fãs de Hatsune Miku no Brasil! Descubra tudo sobre Vocaloid, música, arte, tecnologia e cultura."} />
+        <meta property="og:title" content={`${title} | Hatsune Miku Fan Hub Brasil`} />
+        <meta property="og:description" content={description || "O hub definitivo para fãs de Hatsune Miku no Brasil! Descubra tudo sobre Vocaloid, música, arte, tecnologia e cultura."} />
+      </Helmet>
+      <div id={id} className={`relative animate-slide-up container mx-auto px-4 sm:px-6 lg:px-8 ${className || ''}`}>
       {/* Background decoration */}
       <div className="absolute -top-20 -left-20 w-40 h-40 bg-cyan-500/10 rounded-full blur-3xl animate-float"></div>
       <div className="absolute -top-10 -right-32 w-60 h-60 bg-purple-500/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
@@ -44,5 +53,6 @@ export const PageWrapper: React.FC<PageWrapperProps> = ({ title, children, title
         {children}
       </div>
     </div>
+    </>
   );
 };

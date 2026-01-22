@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { PageWrapper } from '../components/PageWrapper';
 import { ContentCard } from '../components/ContentCard';
 import { HomeIcon, SparklesIcon, InfoIcon, MikuBrandIcon } from '../constants';
@@ -240,16 +240,11 @@ const HeroSection: React.FC = () => {
 };
 
 export const HomePage: React.FC = () => {
-  const navigate = useNavigate();
-
-  const handleSectionClick = (path: string) => {
-    navigate(path);
-  };
 
   return (
     <>
       <HeroSection />
-      <PageWrapper title="Bem-vindo ao Mundo de Hatsune Miku - Fan Hub Brasil" titleIcon={<HomeIcon />} className="pt-8 mt-8" id="main-content-start">
+      <PageWrapper title="Bem-vindo ao Mundo de Hatsune Miku - Fan Hub Brasil" description="O principal portal brasileiro sobre Hatsune Miku e Vocaloid. Notícias, músicas, arte e curiosidades sobre a diva virtual mais amada do mundo." titleIcon={<HomeIcon />} className="pt-8 mt-8" id="main-content-start">
         <ContentCard title={<><SparkleIcon className="inline w-6 h-6 mr-2 text-cyan-400" />Olá! Mergulhe no Mundo da Miku</>}>
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
             <div className="order-2 lg:order-1 space-y-6">
@@ -342,16 +337,16 @@ export const HomePage: React.FC = () => {
                     { name: 'Cultura', path: '/cultura', color: 'from-pink-400 to-rose-400' },
                     { name: 'Comunidade', path: '/comunidade', color: 'from-yellow-400 to-orange-400' }
                   ].map((section, index) => (
-                    <button 
+                    <Link 
                       key={section.name}
-                      onClick={() => handleSectionClick(section.path)}
-                      className={`w-full p-3 rounded-lg glass-effect border border-purple-400/30 text-left transition-all duration-300 cursor-pointer transform hover:scale-105 group`}
+                      to={section.path}
+                      className={`w-full p-3 rounded-lg glass-effect border border-purple-400/30 text-left transition-all duration-300 cursor-pointer transform hover:scale-105 group block`}
                       style={{ animationDelay: `${index * 100}ms` }}
                     >
                       <span className={`text-transparent bg-clip-text bg-gradient-to-r ${section.color} font-semibold group-hover:text-white transition-all duration-300`}>
                         {section.name}
                       </span>
-                    </button>
+                    </Link>
                   ))}
                 </div>
               </div>
