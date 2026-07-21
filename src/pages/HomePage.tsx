@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { PageWrapper } from '../components/PageWrapper';
 import { ContentCard } from '../components/ContentCard';
-import { HomeIcon, SparklesIcon, InfoIcon, MikuBrandIcon } from '../constants';
+import { HomeIcon, SparklesIcon, InfoIcon, MikuBrandIcon } from '../components/Icons';
 
 // Ícones SVG codificados manualmente - estilo otaku dev
 const SparkleIcon = ({ className }: { className?: string }) => (
@@ -331,11 +331,10 @@ export const HomePage: React.FC = () => {
                 </h4>
                 <div className="grid grid-cols-1 gap-3">
                   {[
-                    { name: 'Música', path: '/musica', color: 'from-cyan-400 to-blue-400' },
-                    { name: 'Arte', path: '/arte', color: 'from-purple-400 to-pink-400' },
-                    { name: 'Tecnologia', path: '/tecnologia', color: 'from-green-400 to-cyan-400' },
-                    { name: 'Cultura', path: '/cultura', color: 'from-pink-400 to-rose-400' },
-                    { name: 'Comunidade', path: '/comunidade', color: 'from-yellow-400 to-orange-400' }
+                    { name: 'Sobre Miku', path: '/sobre-miku', color: 'from-cyan-400 to-blue-400' },
+                    { name: 'Sobre Vocaloid', path: '/sobre-vocaloid', color: 'from-purple-400 to-pink-400' },
+                    { name: 'Notícias', path: '/noticias', color: 'from-green-400 to-cyan-400' },
+                    { name: 'Legado', path: '/legado', color: 'from-pink-400 to-rose-400' }
                   ].map((section, index) => (
                     <Link 
                       key={section.name}

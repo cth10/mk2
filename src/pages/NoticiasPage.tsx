@@ -1,9 +1,9 @@
 
 import React from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { PageWrapper } from '../components/PageWrapper';
 import { ContentCard } from '../components/ContentCard';
-import { NewsIcon, MikuBrandIcon } from '../constants';
+import { NewsIcon, MikuBrandIcon } from '../components/Icons';
 import { newsData } from '../utils/newsData';
 
 const NewsCard = ({ title, summary, date, slug, featured = false }: {
@@ -64,13 +64,6 @@ const NewsCard = ({ title, summary, date, slug, featured = false }: {
 };
 
 export const NoticiasPage: React.FC = () => {
-  const noticias = newsData.sort((a, b) => {
-      // Sort by featured first, then maybe date? 
-      // For now just preserve order or featured on top.
-      // But newsData is already sorted manually in my file definitions (newest first).
-      return 0; 
-  });
-
   return (
     <PageWrapper title="Últimas Notícias do Mundo Vocaloid" titleIcon={<NewsIcon />}>
       <ContentCard title={
@@ -88,9 +81,9 @@ export const NoticiasPage: React.FC = () => {
         </div>
 
         <div className="grid gap-8">
-          {noticias.map((noticia, index) => (
+          {newsData.map((noticia) => (
             <NewsCard
-              key={index}
+              key={noticia.slug}
               title={noticia.title}
               summary={noticia.summary}
               date={noticia.date}

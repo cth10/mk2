@@ -1,7 +1,8 @@
 
 import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { NAV_LINKS, MikuBrandIcon, SITE_TITLE } from '../constants';
+import { NAV_LINKS, SITE_TITLE } from '../constants';
+import { MikuBrandIcon } from './Icons';
 
 export const Header: React.FC = () => {
   const navigate = useNavigate();

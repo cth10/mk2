@@ -2,7 +2,7 @@
 import React from 'react';
 import { PageWrapper } from '../components/PageWrapper';
 import { ContentCard } from '../components/ContentCard';
-import { MikuOutlineIcon } from '../constants';
+import { MikuOutlineIcon } from '../components/Icons';
 
 export const SobreMikuPage: React.FC = () => {
   return (

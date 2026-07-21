@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { PageWrapper } from '../components/PageWrapper';
 import { ContentCard } from '../components/ContentCard';
-import { NewsIcon, MikuBrandIcon } from '../constants';
+import { NewsIcon, MikuBrandIcon } from '../components/Icons';
 import { newsData } from '../utils/newsData';
 
 const ArrowLeftIcon = ({ className }: { className?: string }) => (

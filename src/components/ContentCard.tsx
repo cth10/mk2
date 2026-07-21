@@ -1,11 +1,6 @@
 
 import React from 'react';
-
-interface ContentCardProps {
-  title: string;
-  children: React.ReactNode;
-  className?: string;
-}
+import { ContentCardProps } from '../types';
 
 export const ContentCard: React.FC<ContentCardProps> = ({ title, children, className }) => {
   return (

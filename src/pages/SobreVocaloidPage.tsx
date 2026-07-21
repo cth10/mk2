@@ -1,7 +1,7 @@
 import React from "react";
 import { PageWrapper } from "../components/PageWrapper";
 import { ContentCard } from "../components/ContentCard";
-import { InfoIcon } from "../constants";
+import { InfoIcon } from "../components/Icons";
 
 // Ícones SVG tech otaku style
 const MagicIcon = ({ className }: { className?: string }) => (
