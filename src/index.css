@@ -131,4 +131,20 @@
       0 0 60px rgba(0, 245, 255, 0.2),
       inset 0 0 30px rgba(0, 245, 255, 0.1);
   }
+
+  /* Entrada escalonada dos cards de notícias (usar com animationDelay inline) */
+  @keyframes news-card-in {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .news-card-in {
+    animation: news-card-in 0.5s ease-out backwards;
+  }
 }
