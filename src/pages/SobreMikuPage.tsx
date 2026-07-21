@@ -9,9 +9,13 @@ export const SobreMikuPage: React.FC = () => {
     <PageWrapper title="Sobre Hatsune Miku" description="Saiba tudo sobre Hatsune Miku: idade, altura, origem e como ela se tornou um fenômeno global da música e cultura pop." titleIcon={<MikuOutlineIcon />}>
       <ContentCard title="Perfil da Diva Virtual">
         <div className="flex flex-col lg:flex-row items-start gap-8">
-          <img 
-            src="/miku2.webp" 
-            alt="Arte oficial de Hatsune Miku (V4X Design)" 
+          <img
+            src="/miku2.webp"
+            alt="Arte oficial de Hatsune Miku (V4X Design)"
+            width={500}
+            height={767}
+            loading="lazy"
+            decoding="async"
             className="rounded-xl shadow-2xl w-full lg:w-2/5 max-w-md mx-auto object-contain transition-transform duration-300 hover:scale-105"
           />
           <div className="lg:w-3/5">

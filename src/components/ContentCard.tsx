@@ -9,9 +9,11 @@ export const ContentCard: React.FC<ContentCardProps> = ({ title, children, class
       <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-transparent to-purple-500/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
       
       {/* Title */}
-      <h2 className="relative text-2xl sm:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-purple-300 mb-6 sm:mb-8 font-noto-jp">
-        {title}
-      </h2>
+      {title && (
+        <h2 className="relative text-2xl sm:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-purple-300 mb-6 sm:mb-8 font-noto-jp">
+          {title}
+        </h2>
+      )}
       
       {/* Content */}
       <div className="relative text-slate-200 leading-relaxed space-y-4">

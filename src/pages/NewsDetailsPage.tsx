@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { PageWrapper } from '../components/PageWrapper';
 import { ContentCard } from '../components/ContentCard';
 import { NewsIcon, MikuBrandIcon } from '../components/Icons';
@@ -26,7 +26,6 @@ const TagIcon = ({ className }: { className?: string }) => (
 
 export const NewsDetailsPage: React.FC = () => {
   const { slug } = useParams();
-  const navigate = useNavigate();
   const article = newsData.find(n => n.slug === slug);
 
   if (!article) {
@@ -34,31 +33,31 @@ export const NewsDetailsPage: React.FC = () => {
       <PageWrapper title="Notícia não encontrada" titleIcon={<NewsIcon />}>
         <div className="text-center py-12">
             <h2 className="text-2xl font-bold text-slate-300 mb-4">Ops! Notícia não encontrada.</h2>
-            <button 
-                onClick={() => navigate('/noticias')}
+            <Link
+                to="/noticias"
                 className="text-cyan-400 hover:text-cyan-300 underline"
             >
                 Voltar para lista de notícias
-            </button>
+            </Link>
         </div>
       </PageWrapper>
     );
   }
 
   return (
-    <PageWrapper title={article.title} titleIcon={<NewsIcon />}>
-      {/* Botão de voltar */}
+    <PageWrapper title={article.title} description={article.summary} titleIcon={<NewsIcon />}>
+      {/* Link de voltar */}
       <div className="mb-8">
-        <button 
-          onClick={() => navigate('/noticias')}
-          className="group flex items-center space-x-2 text-cyan-400 hover:text-cyan-300 transition-colors duration-300"
+        <Link
+          to="/noticias"
+          className="group inline-flex items-center space-x-2 text-cyan-400 hover:text-cyan-300 transition-colors duration-300"
         >
           <ArrowLeftIcon className="w-5 h-5 group-hover:-translate-x-1 transition-transform duration-300" />
           <span>Voltar para Notícias</span>
-        </button>
+        </Link>
       </div>
 
-      <ContentCard title="">
+      <ContentCard>
         {/* Header da notícia */}
         <div className="mb-8">
           <div className="flex flex-wrap items-center gap-4 mb-4 text-sm text-slate-400">
@@ -77,11 +76,7 @@ export const NewsDetailsPage: React.FC = () => {
               </div>
             )}
           </div>
-          
-          <h1 className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400 mb-4 leading-tight">
-            {article.title}
-          </h1>
-          
+
           <p className="text-xl text-slate-300 leading-relaxed">
             {article.summary}
           </p>

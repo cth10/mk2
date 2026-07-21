@@ -20,6 +20,7 @@ export const SobreVocaloidPage: React.FC = () => {
   return (
     <PageWrapper
       title="Desvendando a Tecnologia Vocaloid"
+      description="Entenda o que é Vocaloid, como funciona a síntese de voz da Yamaha e a história da tecnologia que deu vida à Hatsune Miku."
       titleIcon={<InfoIcon />}
     >
       <ContentCard title="O Que é Vocaloid?">
@@ -41,6 +42,10 @@ export const SobreVocaloidPage: React.FC = () => {
         <img
           src="/miku-a.png"
           alt="Hatsune Miku - Arte oficial representando o Vocaloid"
+          width={735}
+          height={752}
+          loading="lazy"
+          decoding="async"
           className="rounded-xl shadow-xl w-full my-6 object-contain aspect-square max-h-[400px] transition-transform duration-300 hover:scale-105"
         />
       </ContentCard>

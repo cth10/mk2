@@ -9,7 +9,7 @@ export interface PageRoute {
 }
 
 export interface ContentCardProps {
-  title: React.ReactNode;
+  title?: React.ReactNode;
   children: React.ReactNode;
   className?: string;
 }

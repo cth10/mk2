@@ -65,7 +65,7 @@ const NewsCard = ({ title, summary, date, slug, featured = false }: {
 
 export const NoticiasPage: React.FC = () => {
   return (
-    <PageWrapper title="Últimas Notícias do Mundo Vocaloid" titleIcon={<NewsIcon />}>
+    <PageWrapper title="Últimas Notícias do Mundo Vocaloid" description="Acompanhe as últimas notícias, lançamentos e eventos do universo Vocaloid: Hatsune Miku, turnês, jogos, arte e muito mais." titleIcon={<NewsIcon />}>
       <ContentCard title={
         <>
           <MikuBrandIcon className="inline w-6 h-6 mr-2 text-cyan-400" />

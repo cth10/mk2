@@ -1,16 +1,13 @@
 
 import React, { useState } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { NAV_LINKS, SITE_TITLE } from '../constants';
 import { MikuBrandIcon } from './Icons';
 
 export const Header: React.FC = () => {
-  const navigate = useNavigate();
-  const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const handleNavigation = (path: string) => {
-    navigate(path);
+  const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
   };
 
@@ -38,13 +35,13 @@ export const Header: React.FC = () => {
       document.addEventListener('mousedown', handleClickOutside);
       document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = '';
     }
 
     return () => {
       document.removeEventListener('keydown', handleEscape);
       document.removeEventListener('mousedown', handleClickOutside);
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = '';
     };
   }, [isMobileMenuOpen]);
 
@@ -60,8 +57,8 @@ export const Header: React.FC = () => {
         <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex justify-between items-center">
             {/* Brand */}
-            <button
-              onClick={() => handleNavigation('/')}
+            <Link
+              to="/"
               className="group flex items-center text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 hover:from-cyan-300 hover:via-purple-300 hover:to-pink-300 transition-all duration-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-black rounded-xl p-2 glass-effect"
               aria-label={`Navegar para a página inicial de ${SITE_TITLE}`}
             >
@@ -77,12 +74,12 @@ export const Header: React.FC = () => {
                   FAN HUB
                 </span>
               </div>
-            </button>
+            </Link>
 
             {/* Mobile menu button */}
             <button
               onClick={toggleMobileMenu}
-              className="lg:hidden mobile-menu-button relative z-50 p-3 rounded-xl glass-effect border border-cyan-500/30 hover:border-cyan-400/50 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-black"
+              className="lg:hidden mobile-menu-button relative p-3 rounded-xl glass-effect border border-cyan-500/30 hover:border-cyan-400/50 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-black"
               aria-label={isMobileMenuOpen ? "Fechar menu" : "Abrir menu"}
               aria-expanded={isMobileMenuOpen}
             >
@@ -94,52 +91,53 @@ export const Header: React.FC = () => {
             </button>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:block">
+            <nav className="hidden lg:block" aria-label="Navegação principal">
               <ul className="flex gap-3">
-                {NAV_LINKS.map((link, index) => {
-                  const isActive = location.pathname === link.path;
-                  return (
-                    <li key={link.path} className="relative">
-                      <button
-                        onClick={() => handleNavigation(link.path)}
-                        className={`group relative flex items-center px-4 py-3 rounded-xl text-sm font-medium transition-all duration-300 ease-in-out cyber-border
-                                   focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black focus:ring-cyan-500 overflow-hidden
-                                   ${isActive 
-                                     ? 'glass-effect text-cyan-300 shadow-lg shadow-cyan-500/25 border-cyan-400/30' 
-                                     : 'text-slate-300 hover:text-white hover:glass-effect hover:shadow-lg hover:shadow-purple-500/25 border-transparent hover:border-purple-400/30'
-                                   }`}
-                        style={{ animationDelay: `${index * 100}ms` }}
-                        aria-current={isActive ? 'page' : undefined}
-                      >
-                        {/* Background glow effect */}
-                        <div className={`absolute inset-0 rounded-xl transition-all duration-300 ${
-                          isActive 
-                            ? 'bg-gradient-to-r from-cyan-500/20 to-purple-500/20' 
-                            : 'bg-gradient-to-r from-purple-500/10 to-pink-500/10 opacity-0 group-hover:opacity-100'
-                        }`}></div>
-                        
-                        {/* Icon */}
-                        {link.icon && (
-                          <link.icon className={`relative w-5 h-5 mr-2 transition-all duration-300 ${
-                            isActive 
-                              ? 'text-cyan-400 drop-shadow-lg animate-sparkle' 
-                              : 'text-slate-400 group-hover:text-purple-400 group-hover:animate-float'
-                          }`} />
-                        )}
-                        
-                        {/* Text */}
-                        <span className="relative font-medium tracking-wide">
-                          {link.name}
-                        </span>
-                        
-                        {/* Active indicator */}
-                        {isActive && (
-                          <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-8 h-0.5 bg-gradient-to-r from-transparent via-cyan-400 to-transparent rounded-full"></div>
-                        )}
-                      </button>
-                    </li>
-                  );
-                })}
+                {NAV_LINKS.map((link, index) => (
+                  <li key={link.path} className="relative">
+                    <NavLink
+                      to={link.path}
+                      end={link.path === '/'}
+                      className={({ isActive }) => `group relative flex items-center px-4 py-3 rounded-xl text-sm font-medium transition-all duration-300 ease-in-out cyber-border
+                                 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black focus:ring-cyan-500 overflow-hidden
+                                 ${isActive
+                                   ? 'glass-effect text-cyan-300 shadow-lg shadow-cyan-500/25 border-cyan-400/30'
+                                   : 'text-slate-300 hover:text-white hover:glass-effect hover:shadow-lg hover:shadow-purple-500/25 border-transparent hover:border-purple-400/30'
+                                 }`}
+                      style={{ animationDelay: `${index * 100}ms` }}
+                    >
+                      {({ isActive }) => (
+                        <>
+                          {/* Background glow effect */}
+                          <div className={`absolute inset-0 rounded-xl transition-all duration-300 ${
+                            isActive
+                              ? 'bg-gradient-to-r from-cyan-500/20 to-purple-500/20'
+                              : 'bg-gradient-to-r from-purple-500/10 to-pink-500/10 opacity-0 group-hover:opacity-100'
+                          }`}></div>
+
+                          {/* Icon */}
+                          {link.icon && (
+                            <link.icon className={`relative w-5 h-5 mr-2 transition-all duration-300 ${
+                              isActive
+                                ? 'text-cyan-400 drop-shadow-lg animate-sparkle'
+                                : 'text-slate-400 group-hover:text-purple-400 group-hover:animate-float'
+                            }`} />
+                          )}
+
+                          {/* Text */}
+                          <span className="relative font-medium tracking-wide">
+                            {link.name}
+                          </span>
+
+                          {/* Active indicator */}
+                          {isActive && (
+                            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-8 h-0.5 bg-gradient-to-r from-transparent via-cyan-400 to-transparent rounded-full"></div>
+                          )}
+                        </>
+                      )}
+                    </NavLink>
+                  </li>
+                ))}
               </ul>
             </nav>
           </div>
@@ -148,15 +146,21 @@ export const Header: React.FC = () => {
 
       {/* Mobile Navigation Menu - Moved outside header for better positioning */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden fixed inset-0 z-40 transition-all duration-300 ease-in-out">
+        <div
+          className="lg:hidden fixed inset-0 z-[60] transition-all duration-300 ease-in-out"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Menu de navegação"
+        >
           {/* Backdrop */}
-          <div 
+          <div
             className="absolute inset-0 bg-black/50 backdrop-blur-sm"
-            onClick={() => setIsMobileMenuOpen(false)}
+            onClick={closeMobileMenu}
+            aria-hidden="true"
           ></div>
-          
+
           {/* Menu Panel */}
-          <div className="mobile-menu-panel absolute top-0 right-0 h-full w-80 max-w-[85vw] bg-black/95 backdrop-blur-xl border-l border-cyan-500/30 transform transition-transform duration-300 ease-in-out overflow-y-auto">
+          <div className="mobile-menu-panel absolute top-0 right-0 h-full w-80 max-w-[85vw] bg-black/95 backdrop-blur-xl border-l border-cyan-500/30 transform transition-transform duration-300 ease-in-out overflow-y-auto flex flex-col">
             {/* Menu header */}
             <div className="sticky top-0 p-6 border-b border-cyan-500/20 bg-black/95 backdrop-blur-xl">
               <div className="flex items-center justify-between">
@@ -164,12 +168,12 @@ export const Header: React.FC = () => {
                   Navegação
                 </h2>
                 <button
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  onClick={closeMobileMenu}
                   className="p-2 rounded-lg glass-effect border border-cyan-500/30 hover:border-cyan-400/50 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-cyan-500"
                   aria-label="Fechar menu"
                   type="button"
                 >
-                  <svg className="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <svg className="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                   </svg>
                 </button>
@@ -177,46 +181,47 @@ export const Header: React.FC = () => {
             </div>
 
             {/* Menu items */}
-            <nav className="p-6">
+            <nav className="p-6" aria-label="Navegação móvel">
               <ul className="space-y-3">
-                {NAV_LINKS.map((link, index) => {
-                  const isActive = location.pathname === link.path;
-                  return (
-                    <li key={link.path}>
-                      <button
-                        onClick={() => handleNavigation(link.path)}
-                        className={`group w-full flex items-center px-4 py-4 rounded-xl text-base font-medium transition-all duration-300 ease-in-out cyber-border
-                                   focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black focus:ring-cyan-500 overflow-hidden text-left
-                                   ${isActive 
-                                     ? 'glass-effect text-cyan-300 shadow-lg shadow-cyan-500/25 border-cyan-400/30 bg-gradient-to-r from-cyan-500/20 to-purple-500/20' 
-                                     : 'text-slate-300 hover:text-white hover:glass-effect hover:shadow-lg hover:shadow-purple-500/25 border-transparent hover:border-purple-400/30 hover:bg-gradient-to-r hover:from-purple-500/10 hover:to-pink-500/10'
-                                   }`}
-                        style={{ animationDelay: `${index * 50}ms` }}
-                        aria-current={isActive ? 'page' : undefined}
-                        type="button"
-                      >
-                        {/* Icon */}
-                        {link.icon && (
-                          <link.icon className={`w-6 h-6 mr-4 transition-all duration-300 ${
-                            isActive 
-                              ? 'text-cyan-400 drop-shadow-lg animate-sparkle' 
-                              : 'text-slate-400 group-hover:text-purple-400 group-hover:animate-float'
-                          }`} />
-                        )}
-                        
-                        {/* Text */}
-                        <span className="font-medium tracking-wide">
-                          {link.name}
-                        </span>
-                        
-                        {/* Active indicator */}
-                        {isActive && (
-                          <div className="ml-auto w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></div>
-                        )}
-                      </button>
-                    </li>
-                  );
-                })}
+                {NAV_LINKS.map((link, index) => (
+                  <li key={link.path}>
+                    <NavLink
+                      to={link.path}
+                      end={link.path === '/'}
+                      onClick={closeMobileMenu}
+                      className={({ isActive }) => `group w-full flex items-center px-4 py-4 rounded-xl text-base font-medium transition-all duration-300 ease-in-out cyber-border
+                                 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black focus:ring-cyan-500 overflow-hidden text-left
+                                 ${isActive
+                                   ? 'glass-effect text-cyan-300 shadow-lg shadow-cyan-500/25 border-cyan-400/30 bg-gradient-to-r from-cyan-500/20 to-purple-500/20'
+                                   : 'text-slate-300 hover:text-white hover:glass-effect hover:shadow-lg hover:shadow-purple-500/25 border-transparent hover:border-purple-400/30 hover:bg-gradient-to-r hover:from-purple-500/10 hover:to-pink-500/10'
+                                 }`}
+                      style={{ animationDelay: `${index * 50}ms` }}
+                    >
+                      {({ isActive }) => (
+                        <>
+                          {/* Icon */}
+                          {link.icon && (
+                            <link.icon className={`w-6 h-6 mr-4 transition-all duration-300 ${
+                              isActive
+                                ? 'text-cyan-400 drop-shadow-lg animate-sparkle'
+                                : 'text-slate-400 group-hover:text-purple-400 group-hover:animate-float'
+                            }`} />
+                          )}
+
+                          {/* Text */}
+                          <span className="font-medium tracking-wide">
+                            {link.name}
+                          </span>
+
+                          {/* Active indicator */}
+                          {isActive && (
+                            <div className="ml-auto w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></div>
+                          )}
+                        </>
+                      )}
+                    </NavLink>
+                  </li>
+                ))}
               </ul>
             </nav>
 

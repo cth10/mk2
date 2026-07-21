@@ -3,12 +3,19 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    /* Evita barra de rolagem horizontal causada por elementos decorativos absolutos */
+    overflow-x: hidden;
+    overflow-x: clip;
+  }
+
   body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
       'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
       sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: clip;
     background: linear-gradient(
       135deg,
       #0c0a1e 0%,
@@ -23,6 +30,18 @@
   code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
       monospace;
+  }
+
+  /* Respeita a preferência de movimento reduzido do usuário */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 }
 

@@ -2,15 +2,18 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
+import { ScrollToTop } from './components/ScrollToTop';
+import { NotFoundPage } from './pages/NotFoundPage';
 import { NAV_LINKS, ADDITIONAL_ROUTES } from './constants';
 
 const App: React.FC = () => {
   return (
     <Router>
+      <ScrollToTop />
       <div className="flex flex-col min-h-screen font-sans">
         <Header />
-        <main className="flex-grow px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-          
+        <main className="flex-grow">
+
           <Routes>
             {NAV_LINKS.map((page) => (
               <Route key={page.path} path={page.path} element={<page.component />} />
@@ -18,6 +21,7 @@ const App: React.FC = () => {
             {ADDITIONAL_ROUTES.map((page) => (
               <Route key={page.path} path={page.path} element={<page.component />} />
             ))}
+            <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </main>
         <Footer />

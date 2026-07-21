@@ -19,7 +19,7 @@ const TechIcon = ({ className }: { className?: string }) => (
 
 export const LegadoPage: React.FC = () => {
   return (
-    <PageWrapper title="O Legado Imortal de Hatsune Miku" titleIcon={<SparklesIcon />}>
+    <PageWrapper title="O Legado Imortal de Hatsune Miku" description="O impacto cultural de Hatsune Miku: concertos holográficos, músicas emblemáticas, colaborações globais e o futuro da síntese vocal." titleIcon={<SparklesIcon />}>
       <ContentCard title="Impacto Cultural Global e Multifacetado">
         <p>
           O impacto de Hatsune Miku na cultura pop transcende em muito o de um simples software. Ela se solidificou como um fenômeno global, exercendo influência significativa e duradoura sobre música, arte digital, moda, tecnologia e a própria natureza da criação de conteúdo online.
@@ -41,9 +41,13 @@ export const LegadoPage: React.FC = () => {
             <strong>Fonte de Educação e Inspiração:</strong> A existência e o sucesso de Miku inspiraram inúmeras pessoas a aprenderem sobre produção musical, composição, animação 2D/3D, ilustração digital e programação.
           </li>
         </ul>
-         <img 
-            src="/hatsune-miku-expo.png" 
-            alt="Hatsune Miku se apresentando em show holográfico no Miku Expo" 
+         <img
+            src="/hatsune-miku-expo.png"
+            alt="Hatsune Miku se apresentando em show holográfico no Miku Expo"
+            width={1512}
+            height={944}
+            loading="lazy"
+            decoding="async"
             className="rounded-xl shadow-xl w-full my-6 object-cover aspect-video max-h-[350px] transition-transform duration-300 hover:scale-105"
           />
       </ContentCard>
