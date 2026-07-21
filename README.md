@@ -16,8 +16,7 @@ Site dedicado aos fãs da Hatsune Miku e do universo Vocaloid. React 19 + TypeSc
 │   ├── components/         # Header, Footer, ContentCard, PageWrapper, Icons
 │   ├── pages/              # Uma página por rota
 │   └── utils/              # newsData.tsx (conteúdo das notícias)
-├── tailwind.config.js      # Tema customizado (cores, animações, fontes)
-└── .github/workflows/      # CI (valida pushes/PRs) + deploy para o GitHub Pages
+└── tailwind.config.js      # Tema customizado (cores, animações, fontes)
 ```
 
 ## Comandos
@@ -27,14 +26,21 @@ Site dedicado aos fãs da Hatsune Miku e do universo Vocaloid. React 19 + TypeSc
 - `npm run build` — checa tipos (`tsc --noEmit`) e gera `dist/` de produção
 - `npm run typecheck` — só a checagem de tipos
 - `npm run preview` — serve o build de produção localmente
+- `npm run deploy` — build + publica `dist/` na branch `gh-pages` (deploy do site)
 
 ## Deploy
 
-O deploy é feito **somente** pelo GitHub Actions (`.github/workflows/deploy-gh-pages.yml`): push na branch `main` → build → deploy no GitHub Pages. Não existe script de deploy local.
+O deploy é **manual**, feito da sua máquina:
 
-O workflow de CI (`ci.yml`) roda o mesmo build em pushes fora da `main` e em PRs, então erro de TypeScript ou de build quebra o check do commit/PR — não o site no ar.
+```
+npm run deploy
+```
 
-Requisito no GitHub: **Settings → Pages → Source = "GitHub Actions"**. O domínio customizado vem do `public/CNAME`.
+O comando roda o build completo (com checagem de tipos — TypeScript quebrado não vai ao ar) e publica o conteúdo de `dist/` na branch `gh-pages`, que é a fonte do GitHub Pages. O site atualiza em ~1 minuto.
+
+Requisito no GitHub: **Settings → Pages → Source = "Deploy from a branch"**, branch `gh-pages`, pasta `/ (root)`. O domínio customizado vem do `public/CNAME`.
+
+> **Por que não GitHub Actions?** A conta está bloqueada por billing e o Actions não roda. Os workflows de CI/CD foram removidos, mas estão preservados no histórico: para restaurar no futuro, recupere `.github/workflows/` do commit `31a8478` e mude Pages → Source para "GitHub Actions".
 
 Rotas SPA: o GitHub Pages serve `public/404.html` para caminhos desconhecidos; ele guarda a URL em `sessionStorage` e redireciona para `/`, e um script no `index.html` restaura a rota original. Não remova esses dois scripts.
 
